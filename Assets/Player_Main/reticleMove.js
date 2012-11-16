@@ -5,7 +5,7 @@ var speed = 5;
 var lookAdjustmentX = 24;
 var lookAdjustmentY = 12;
 
-var location : Vector3;
+private var location : Vector3;
 
 function Start () {
 

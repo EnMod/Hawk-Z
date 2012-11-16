@@ -2,9 +2,9 @@
 
 var bullet : Rigidbody;		//bullet prefab
 
-var force : Vector3;		//the force applied to the new bullet
+private var bulletClone : Rigidbody;	//bullet created
 
-var bulletClone : Rigidbody;	//bullet created	
+private var force : Vector3;		//the force applied to the new bullet	
 
 var bulletSpeed = 200.0;
 
@@ -29,7 +29,10 @@ if (Input.GetMouseButtonDown(0))
 	
 	bulletClone.velocity = force;
 	
-	//ensures bulelt is parented to player
+	//ensures bulelt is parented to rail
 	bulletClone.transform.parent = transform.parent;
+	
+	//prevent bullet from hitting player
+	Physics.IgnoreCollision(bulletClone.collider, collider);
 }
 }

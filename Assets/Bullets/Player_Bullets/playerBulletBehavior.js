@@ -1,14 +1,14 @@
 #pragma strict
 
-var force : Vector3;
+private var force : Vector3;
 
-var speed : Vector3;	//speed of bullet, placeholder
+private var speed : Vector3;	//speed of bullet
 
 var lifeTime = 1.0;		//lifetime of bulelt in seconds
 
 var explosion : GameObject;
 
-var explosionClone : GameObject;
+private var explosionClone : GameObject;
 
 function Start () {
 
@@ -35,9 +35,13 @@ rigidbody.velocity = speed;
 function OnCollisionEnter(collision : Collision)
 {
 		//do not destroy terrain
-		if(collision.gameObject.name != "Terrain")
+		if(collision.gameObject.CompareTag("Enemy"))
 			Destroy (collision.gameObject);
 		
-		explosionClone.Instantiate(explosion,transform.position,transform.parent.rotation);
-		Destroy (gameObject);
+		//do not allow bullet collisions
+		if (!collision.gameObject.CompareTag("Bullet"))
+		{
+			explosionClone.Instantiate(explosion,transform.position,transform.parent.rotation);
+			Destroy (gameObject);
+		}
 }

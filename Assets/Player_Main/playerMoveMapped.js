@@ -1,16 +1,15 @@
 #pragma strict
 
 var speed = .5;
-var velocityChangeThreshold = 1.0;
-var proximity : float;
+private var proximity : float;
 var maxVelocity = .2;
-var velocityChange : float;
-var velocity : Vector3;
+private var velocityChange : float;
+private var velocity : Vector3;
 var target : Transform;
 
 var mapping = .5;
 
-var premappedLocation = Vector3(0,0,0);
+private var premappedLocation = Vector3(0,0,0);
 
 var maxXDistance = 4.0;
 var maxYDistance = 2.0;
@@ -30,11 +29,6 @@ velocityChange = speed * proximity / 10;
 
 if (velocityChange > maxVelocity)
 	velocityChange = maxVelocity;
-
-/*if (velocity.magnitude > velocityChangeThreshold)
-	useFastVelocity = true;
-else
-	useFastVelocity = false;*/
 
 velocity.Normalize();
 
@@ -57,9 +51,5 @@ premappedLocation.z = 0;
 
 transform.localPosition = premappedLocation * mapping; 
 
-//transform.rotation = Quaternion.Slerp (transform.rotation, target.rotation, Time.time * speed1);
-
 transform.LookAt(target);
-
-//transform.rotation.SetFromToRotation(Vector3(0,0,0), target.position);
 } 

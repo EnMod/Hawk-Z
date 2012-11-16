@@ -4,13 +4,13 @@ var bullet : Rigidbody;		//bullet prefab
 
 var force : Vector3;		//the force applied to the new bullet
 
-var bulletClone : Rigidbody;		//bullet created
+private var bulletClone : Rigidbody;		//bullet created
 
 var bulletSpeed = 200.0;
 
 var shotSpeed = 2;	//bullets per second
 
-var counter : float;	//counter keeps track of the time since last fire
+private var counter : float;	//counter keeps track of the time since last fire
 
 function Start () {
 	counter = 1;
@@ -40,8 +40,12 @@ if (Input.GetMouseButton(1))
 	bulletClone.velocity = force;
 	
 	bulletClone.transform.parent = transform.parent;
+	
+	//prevent bullet from hitting player
+	Physics.IgnoreCollision(bulletClone.collider, collider);
 	}
 	
+	//reduce counter between shots
 	counter -= Time.deltaTime * shotSpeed;
 }	
 

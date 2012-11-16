@@ -2,7 +2,7 @@
 
 var player : Transform;
 var reticle1 : Transform;
-var movement : Vector3;
+private var movement : Vector3;
 var distance = 16.0;	//distance ahead of ship
 
 function Start () {
@@ -10,6 +10,8 @@ function Start () {
 }
 
 function Update () {
+
+//translates to a location ahead of the player
 
 movement = player.forward;
 

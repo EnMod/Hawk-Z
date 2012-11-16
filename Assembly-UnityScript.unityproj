@@ -44,12 +44,16 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Bullets\Player_Bullets\ExplodingBulletBehavior.js" />
      <Compile Include="Assets\Bullets\Player_Bullets\playerBulletBehavior.js" />
+     <Compile Include="Assets\Bullets\Player_Bullets\stageChargeBehavior.js" />
      <Compile Include="Assets\Enemies\enemyExplode.js" />
      <Compile Include="Assets\Player_Main\cameraMove.js" />
+     <Compile Include="Assets\Player_Main\coolestGlitchEVAR.js" />
      <Compile Include="Assets\Player_Main\healthBar.js" />
      <Compile Include="Assets\Player_Main\playerFire.js" />
      <Compile Include="Assets\Player_Main\playerFireAlt.js" />
+     <Compile Include="Assets\Player_Main\playerFireCharged.js" />
      <Compile Include="Assets\Player_Main\playerMove.js" />
      <Compile Include="Assets\Player_Main\playerMoveMapped.js" />
      <Compile Include="Assets\Player_Main\reticle2Move.js" />

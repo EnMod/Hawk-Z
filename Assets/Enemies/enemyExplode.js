@@ -1,10 +1,12 @@
 #pragma strict
 
-var isQuitting :boolean =  false;
+//causes enemy to explode on death
+
+private var isQuitting : boolean =  false;
 
 var explosion : GameObject;
 
-var explosionClone : GameObject;
+private var explosionClone : GameObject;
 
 function OnApplicationQuit()
 {
