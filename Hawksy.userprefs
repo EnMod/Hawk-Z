@@ -1,12 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Player_Main/playerFireCharged.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Test_Files/testClass.js">
     <Files>
-      <File FileName="Assets/Player_Main/playerFireCharged.js" Line="46" Column="2" />
+      <File FileName="Assets/Player_Main/playerFireCharged.js" Line="1" Column="1" />
       <File FileName="Assets/Bullets/Player_Bullets/playerBulletBehavior.js" Line="1" Column="1" />
-      <File FileName="Assets/Bullets/Player_Bullets/ExplodingBulletBehavior.js" Line="3" Column="55" />
-      <File FileName="Assets/Player_Main/playerFireAlt.js" Line="44" Column="2" />
-      <File FileName="Assets/Player_Main/playerFire.js" Line="35" Column="38" />
+      <File FileName="Assets/Bullets/Player_Bullets/ExplodingBulletBehavior.js" Line="1" Column="1" />
+      <File FileName="Assets/Player_Main/playerFireAlt.js" Line="1" Column="1" />
+      <File FileName="Assets/Player_Main/playerFire.js" Line="1" Column="1" />
+      <File FileName="Assets/Player_Main/playerMoveMapped.js" Line="1" Column="1" />
+      <File FileName="Assets/Player_Main/reticle2Move.js" Line="1" Column="1" />
+      <File FileName="Assets/Test_Files/testClass.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

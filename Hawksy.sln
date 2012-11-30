@@ -5,6 +5,8 @@ Project("{224B2110-8A3B-AE46-BBAD-5DDE28C9F97C}") = "Hawksy", "Assembly-CSharp-f
 EndProject
 Project("{224B2110-8A3B-AE46-BBAD-5DDE28C9F97C}") = "Hawksy", "Assembly-CSharp.csproj", "{154EAAC1-4AE0-AFCA-E54A-55C14F19B9D2}"
 EndProject
+Project("{224B2110-8A3B-AE46-BBAD-5DDE28C9F97C}") = "Hawksy", "Assembly-CSharp-Editor-firstpass.csproj", "{89728A0F-6AB1-5ABD-5007-DEE21EB67A96}"
+EndProject
 Project("{224B2110-8A3B-AE46-BBAD-5DDE28C9F97C}") = "Hawksy", "Assembly-CSharp-Editor.csproj", "{F8C5F1A2-4C04-9B51-DB84-A43F3AADB3A8}"
 EndProject
 Project("{224B2110-8A3B-AE46-BBAD-5DDE28C9F97C}") = "Hawksy", "Assembly-UnityScript-firstpass.unityproj", "{80A72FD4-4D20-7251-9D26-2B061F4244B1}"
@@ -25,6 +27,10 @@ Global
 		{154EAAC1-4AE0-AFCA-E54A-55C14F19B9D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{154EAAC1-4AE0-AFCA-E54A-55C14F19B9D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{154EAAC1-4AE0-AFCA-E54A-55C14F19B9D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89728A0F-6AB1-5ABD-5007-DEE21EB67A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89728A0F-6AB1-5ABD-5007-DEE21EB67A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89728A0F-6AB1-5ABD-5007-DEE21EB67A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89728A0F-6AB1-5ABD-5007-DEE21EB67A96}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F8C5F1A2-4C04-9B51-DB84-A43F3AADB3A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F8C5F1A2-4C04-9B51-DB84-A43F3AADB3A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8C5F1A2-4C04-9B51-DB84-A43F3AADB3A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,7 +47,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																							GlobalSection(MonoDevelopProperties) = preSolution
+																																																													GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

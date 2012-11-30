@@ -50,6 +50,9 @@
      <Compile Include="Assets\Terrain\TerrainToolkit\Editor\TerrainToolkitEditor.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Plugins\whydoidoit.com\license.txt" />
+     <None Include="Assets\UnitySerializer\readme.txt" />
      <None Include="Assets\Terrain\TerrainToolkit\Read me.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +64,8 @@
       <Project>{154EAAC1-4AE0-AFCA-E54A-55C14F19B9D2}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript.unityproj">
       <Project>{CAF44303-0741-78A9-D418-6D08492BF8D3}</Project>      <Name>Assembly-UnityScript</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
+      <Project>{89728A0F-6AB1-5ABD-5007-DEE21EB67A96}</Project>      <Name>Assembly-CSharp-Editor-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -50,6 +50,9 @@
      <Compile Include="Assets\Terrain\TerrainToolkit\Editor\TerrainToolkitEditor.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Plugins\whydoidoit.com\license.txt" />
+     <None Include="Assets\UnitySerializer\readme.txt" />
      <None Include="Assets\Terrain\TerrainToolkit\Read me.txt" />
  <Reference Include="Library\ScriptAssemblies\Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
@@ -63,6 +66,8 @@
       <Project>{4B204B90-BA2F-8AD2-1369-990102248874}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp-vs.csproj">
       <Project>{154EAAC1-4AE0-AFCA-E54A-55C14F19B9D2}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-Editor-firstpass-vs.csproj">
+      <Project>{89728A0F-6AB1-5ABD-5007-DEE21EB67A96}</Project>      <Name>Assembly-CSharp-Editor-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

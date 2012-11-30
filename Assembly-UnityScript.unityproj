@@ -64,9 +64,17 @@
      <Compile Include="Assets\Test_Files\cameratest.js" />
      <Compile Include="Assets\Test_Files\test.js" />
      <Compile Include="Assets\Test_Files\test2.js" />
+     <Compile Include="Assets\Test_Files\testClass.js" />
+     <Compile Include="Assets\UnitySerializer\Scripts\JSONPauseMenu.js" />
+     <Compile Include="Assets\UnitySerializer\Scripts\Movement.js" />
+     <Compile Include="Assets\UnitySerializer\Scripts\PauseMenu.js" />
+     <Compile Include="Assets\UnitySerializer\Scripts\Spawner.js" />
      <Compile Include="Assets\playerScript.js" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Plugins\whydoidoit.com\license.txt" />
+     <None Include="Assets\UnitySerializer\readme.txt" />
      <None Include="Assets\Terrain\TerrainToolkit\Read me.txt" />
   </ItemGroup>
   <ItemGroup>
