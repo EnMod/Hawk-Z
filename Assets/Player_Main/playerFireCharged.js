@@ -16,15 +16,18 @@ var initCharge = 5.0;		//number of seconds that it takes to reach full charge
 
 var charge = initCharge;
 
-private var canFire = false;		//whether or not can fire
+var canFire = false;		//whether or not can fire
 
 var startDelay = .5;			//number of seconds until charge begins
+
+var lockOn : Transform;
 
 function Start () {
 
 }
 
 function Update () {
+//start charge when pressed
 if (Input.GetMouseButtonDown(0))
 {	
 	charge = initCharge;
@@ -33,6 +36,7 @@ if (Input.GetMouseButtonDown(0))
 
 }
 
+//on release, shoot
 if (Input.GetMouseButtonUp(0))
 {
 	//if the player is able to fire, shoot
@@ -62,10 +66,13 @@ if (Input.GetMouseButtonUp(0))
 	}
 }
 
+//charge shot
 if (Input.GetMouseButton(0))
 {
+	//charge
 	charge -= Time.deltaTime;
 	
+	//initialize the bullet and allow firing after start delay threshold
 	if (charge < initCharge - startDelay && charge > 0 && !canFire)
 	{
 		canFire = true;
@@ -79,8 +86,10 @@ if (Input.GetMouseButton(0))
 		chargeClone.transform.position = transform.position + (bulletClone.transform.position * 2);*/
 		
 		chargeClone.transform.parent = transform;
+		
 	}
 	
+	//when fully charged, fire no matter what the player does
 	if(charge < 0 && canFire)
 	{
 		bulletClone = Instantiate(bullet, transform.position, transform.rotation);

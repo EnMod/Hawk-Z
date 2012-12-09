@@ -9,3 +9,12 @@ function Start () {
 function Update () {
 
 }
+
+//function to change parent of lock reticle when destroyed
+
+function OnDestroy()
+{
+    
+        GameObject.Find("LockReticle").transform.parent = transform.parent;
+    
+}
