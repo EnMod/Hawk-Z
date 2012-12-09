@@ -270,20 +270,37 @@ public static class JSONLevelSerializer
 	/// </param>
 	public static void SaveObjectTreeToServer(string uri, GameObject rootOfTree, string userName = "", string password = "", Action<Exception> onComplete =null)
 	{
+		onComplete = onComplete ?? delegate {};
+		Action execute = ()=>{
+			var data = SaveObjectTree(rootOfTree);
+			Action doIt = ()=> {
+				uploadCount++;
+				webClient.Credentials = new NetworkCredential(userName, password);
+				webClient.UploadStringAsync(new Uri(uri), null, data, onComplete);
+			};
+	
+			DoWhenReady(doIt);	
+		};
+		execute();
+		
+		
+	}
+	
+	static void DoWhenReady(Action upload)
+	{
 		lock(Guard)
 		{
+	
 			if(uploadCount > 0)
 			{
-				Loom.QueueOnMainThread(()=>SaveObjectTreeToServer(uri,rootOfTree, userName, password, onComplete), 0.5f);
-				return;
+				Loom.QueueOnMainThread(()=>DoWhenReady(upload), 0.4f);
 			}
-			uploadCount++;
-			onComplete = onComplete ?? delegate {};
-			var data = SaveObjectTree(rootOfTree);
-			webClient.Credentials = new NetworkCredential(userName, password);
-			webClient.UploadStringAsync(new Uri(uri), null, data, onComplete);
+			else
+			{
+				upload();
+			}
 		}
-		
+	
 	}
 	
 	static int uploadCount;

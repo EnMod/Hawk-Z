@@ -148,6 +148,8 @@ public class JSONLevelLoader : MonoBehaviour
 	/// </param>
 	public IEnumerator Load(int numberOfFrames, float timeScale=0)
     {
+		var oldFixedTime = Time.fixedDeltaTime;
+		Time.fixedDeltaTime = 9;
         //Need to wait while the base level is prepared, it takes 2 frames
         while (numberOfFrames-- > 0)
         {
@@ -343,7 +345,7 @@ public class JSONLevelLoader : MonoBehaviour
                             Radical.LogWarning(item.Name + " was null");
                             continue;
                         }
-
+						var sendStartup = false;
 
                         foreach (var cp in item.Components)
                         {
@@ -431,6 +433,7 @@ public class JSONLevelLoader : MonoBehaviour
                                         }
                                         catch
                                         {
+											sendStartup = true;
                                         }
                                     }
                                     list = list.Where(l => l != null).ToList();
@@ -459,6 +462,11 @@ public class JSONLevelLoader : MonoBehaviour
                                 Radical.LogWarning("Problem deserializing " + cp.Type + " for " + go.name + " " + e.ToString());
                             }
                         }
+						if(sendStartup)
+						{
+							go.SendMessage("Awake");
+							go.SendMessage("OnEnable");
+						}
 
 #if US_LOGGING				
 						Radical.OutdentLog ();
@@ -470,7 +478,12 @@ public class JSONLevelLoader : MonoBehaviour
                     //Finally we need to fixup any references to other game objects,
                     //these have been stored in a list inside the serializer
                     //waiting for us to call this.  Vector3s are also deferred until this point
-                    UnitySerializer.RunDeferredActions();
+				UnitySerializer.RunDeferredActions(1, false);
+                
+                Time.fixedDeltaTime = oldFixedTime;
+				yield return new WaitForFixedUpdate();
+				
+				UnitySerializer.RunDeferredActions();
                     if (JSONLevelSerializer.ShouldCollect && timeScale == 0)
                     {
 	                    Resources.UnloadUnusedAssets();
@@ -478,9 +491,6 @@ public class JSONLevelLoader : MonoBehaviour
                     }
 					
 					
-                    yield return null;
-                    yield return null;
-
 
                     UnitySerializer.InformDeserializedObjects();
 					foreach(var obj in flaggedObjects)

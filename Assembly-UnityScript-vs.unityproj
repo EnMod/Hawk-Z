@@ -51,11 +51,13 @@
      <Compile Include="Assets\Player_Main\cameraMove.js" />
      <Compile Include="Assets\Player_Main\coolestGlitchEVAR.js" />
      <Compile Include="Assets\Player_Main\healthBar.js" />
+     <Compile Include="Assets\Player_Main\lockReticleRotate.js" />
      <Compile Include="Assets\Player_Main\playerFire.js" />
      <Compile Include="Assets\Player_Main\playerFireAlt.js" />
      <Compile Include="Assets\Player_Main\playerFireCharged.js" />
      <Compile Include="Assets\Player_Main\playerMove.js" />
      <Compile Include="Assets\Player_Main\playerMoveMapped.js" />
+     <Compile Include="Assets\Player_Main\railEnemySpawn.js" />
      <Compile Include="Assets\Player_Main\reticle2Move.js" />
      <Compile Include="Assets\Player_Main\reticleMove.js" />
      <Compile Include="Assets\Terrain\TerrainToolkit\TerrainToolkitEnums.js" />

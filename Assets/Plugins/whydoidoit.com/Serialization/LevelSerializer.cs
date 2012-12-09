@@ -252,8 +252,7 @@ public static class LevelSerializer
 	}
 	
 	static readonly object Guard = new object();
-
-	/// <summary>
+		/// <summary>
 	/// Saves an object tree to a server using POST or STOR
 	/// </summary>
 	/// <param name='uri'>
@@ -271,24 +270,40 @@ public static class LevelSerializer
 	/// <param name='onComplete'>
 	/// A function to call when the upload is complete
 	/// </param>
-	public static void SaveObjectTreeToServer(string uri, GameObject rootOfTree, string userName = "", string password = "", Action<Exception> onComplete=null)
+	public static void SaveObjectTreeToServer(string uri, GameObject rootOfTree, string userName = "", string password = "", Action<Exception> onComplete =null)
 	{
-		lock(Guard)
-		{
-			if(uploadCount > 0)
-			{
-				Loom.QueueOnMainThread(()=>SaveObjectTreeToServer(uri,rootOfTree, userName, password, onComplete), 0.5f);
-				return;
-			}
-			uploadCount++;
-			onComplete = onComplete ?? delegate {};
+		onComplete = onComplete ?? delegate {};
+		Action execute = ()=>{
 			var data = SaveObjectTree(rootOfTree);
-			webClient.Credentials = new NetworkCredential(userName, password);
-			webClient.UploadDataAsync(new Uri(uri), null, data, onComplete);
-		}
+			Action doIt = ()=> {
+				uploadCount++;
+				webClient.Credentials = new NetworkCredential(userName, password);
+				webClient.UploadDataAsync(new Uri(uri), null, data, onComplete);
+			};
+	
+			DoWhenReady(doIt);	
+		};
+		execute();
+		
 		
 	}
 	
+	static void DoWhenReady(Action upload)
+	{
+		lock(Guard)
+		{
+	
+			if(uploadCount > 0)
+			{
+				Loom.QueueOnMainThread(()=>DoWhenReady(upload), 0.4f);
+			}
+			else
+			{
+				upload();
+			}
+		}
+	
+	}
 	/// <summary>
 	/// Loads an object tree from a server
 	/// </summary>
@@ -1389,6 +1404,7 @@ public class SerializeAnimations : IComponentSerializer
     {
         public byte[] data;
         public string name;
+		public SaveGameManager.AssetReference asset;
     }
 
     #endregion
@@ -1400,27 +1416,34 @@ public class SerializeAnimations : IComponentSerializer
         return
             UnitySerializer.Serialize(
                 ((Animation) component).Cast<AnimationState>().Select(
-                    a => new StoredState() {data = UnitySerializer.SerializeForDeserializeInto(a), name = a.name}).
+                    a => new StoredState() {data = UnitySerializer.SerializeForDeserializeInto(a), name = a.name, asset = SaveGameManager.GetAssetId(a.clip)}).
                     ToList());
     }
 
     public void Deserialize(byte[] data, Component instance)
     {
-        var animation = (Animation) instance;
-        animation.Stop();
-        var list = UnitySerializer.Deserialize<List<StoredState>>(data);
-        foreach (var entry in list)
-        {
-            if (entry.name.Contains(" - Queued Clone"))
-            {
-                var newState = animation.PlayQueued(entry.name.Replace(" - Queued Clone", ""));
-                UnitySerializer.DeserializeInto(entry.data, newState);
-            }
-            else
-            {
-                UnitySerializer.DeserializeInto(entry.data, animation[entry.name]);
-            }
-        }
+		UnitySerializer.AddFinalAction(()=>{
+	        var animation = (Animation) instance;
+	        animation.Stop();
+			var current = animation.Cast<AnimationState>().ToDictionary(a=>a.name);
+	        var list = UnitySerializer.Deserialize<List<StoredState>>(data);
+	        foreach (var entry in list)
+	        {
+				if(entry.asset != null && !current.ContainsKey(entry.name))
+				{
+					animation.AddClip(SaveGameManager.GetAsset(entry.asset) as AnimationClip, entry.name);
+				}
+	            if (entry.name.Contains(" - Queued Clone"))
+	            {
+	                var newState = animation.PlayQueued(entry.name.Replace(" - Queued Clone", ""));
+	                UnitySerializer.DeserializeInto(entry.data, newState);
+	            }
+	            else
+	            {
+	                UnitySerializer.DeserializeInto(entry.data, animation[entry.name]);
+	            }
+	        }
+		});
     }
 
     #endregion

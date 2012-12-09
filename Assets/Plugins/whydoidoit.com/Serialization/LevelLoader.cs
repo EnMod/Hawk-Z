@@ -316,10 +316,10 @@ public class LevelLoader : MonoBehaviour
 		
 		
         //Newly created objects should have the time to start
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
         Time.timeScale = timeScale;
-		//yield return new WaitForEndOfFrame();
-        //yield return new WaitForEndOfFrame();
-        
+		
 
         LevelSerializer.RaiseProgress("Initializing", 1f);
 
@@ -354,7 +354,7 @@ public class LevelLoader : MonoBehaviour
                         Radical.LogWarning(item.Name + " was null");
                         continue;
                     }
-
+					var sendStartup = false;
 
                     foreach (var cp in item.Components)
                     {
@@ -441,6 +441,7 @@ public class LevelLoader : MonoBehaviour
                                     }
                                     catch
                                     {
+										sendStartup = true;
                                     }
                                 }
                                 list = list.Where(l => l != null).ToList();
@@ -474,9 +475,14 @@ public class LevelLoader : MonoBehaviour
 					Radical.OutdentLog ();
 					Radical.Log ("\n*****************\n{0}\n********END**********\n\n", item.Name);
 #endif
-                }
+					if(sendStartup)
+					{
+						go.SendMessage("Awake");
+						go.SendMessage("OnEnable");
+					}
+				}
 				
-				UnitySerializer.RunDeferredActions(2, false);
+				UnitySerializer.RunDeferredActions(1, false);
                 
                 Time.fixedDeltaTime = oldFixedTime;
 				yield return new WaitForFixedUpdate();

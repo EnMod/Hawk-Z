@@ -44,9 +44,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Splines\Scripts\Editor\SplineControllerInspector.cs" />
-     <Compile Include="Assets\Splines\Scripts\Editor\SplineInspector.cs" />
-     <Compile Include="Assets\Splines\Scripts\Editor\SplineNodeInspector.cs" />
      <Compile Include="Assets\Terrain\TerrainToolkit\Editor\TerrainToolkitEditor.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />

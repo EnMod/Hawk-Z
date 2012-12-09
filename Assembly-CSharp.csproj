@@ -44,13 +44,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Splines\Scripts\HelperClasses\Set.cs" />
-     <Compile Include="Assets\Splines\Scripts\HelperClasses\Utility.cs" />
-     <Compile Include="Assets\Splines\Scripts\SplineClasses\Spline.cs" />
-     <Compile Include="Assets\Splines\Scripts\SplineClasses\SplineColliderDraw.cs" />
-     <Compile Include="Assets\Splines\Scripts\SplineClasses\SplineController.cs" />
-     <Compile Include="Assets\Splines\Scripts\SplineClasses\SplineNode.cs" />
-     <Compile Include="Assets\Splines\Scripts\SplineClasses\SplineTester.cs" />
      <Compile Include="Assets\Terrain\TerrainToolkit\TerrainToolkit.cs" />
      <Compile Include="Assets\UnitySerializer\Scripts\AddSomeForce.cs" />
      <Compile Include="Assets\UnitySerializer\Scripts\AdditionalData.cs" />

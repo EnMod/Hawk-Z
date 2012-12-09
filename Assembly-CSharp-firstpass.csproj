@@ -44,6 +44,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Plugins\radical\System\Curves.cs" />
+     <Compile Include="Assets\Plugins\radical\System\Easing.cs" />
      <Compile Include="Assets\Plugins\whydoidoit.com\7zip\Common\CRC.cs" />
      <Compile Include="Assets\Plugins\whydoidoit.com\7zip\Common\InBuffer.cs" />
      <Compile Include="Assets\Plugins\whydoidoit.com\7zip\Common\OutBuffer.cs" />
@@ -59,6 +61,7 @@
      <Compile Include="Assets\Plugins\whydoidoit.com\7zip\Compress\RangeCoder\RangeCoderBitTree.cs" />
      <Compile Include="Assets\Plugins\whydoidoit.com\7zip\Compress\SevenZipHelper.cs" />
      <Compile Include="Assets\Plugins\whydoidoit.com\7zip\ICoder.cs" />
+     <Compile Include="Assets\Plugins\whydoidoit.com\ClickMeAndDie.cs" />
      <Compile Include="Assets\Plugins\whydoidoit.com\LitJson\IJsonWrapper.cs" />
      <Compile Include="Assets\Plugins\whydoidoit.com\LitJson\JsonData.cs" />
      <Compile Include="Assets\Plugins\whydoidoit.com\LitJson\JsonException.cs" />
@@ -69,9 +72,7 @@
      <Compile Include="Assets\Plugins\whydoidoit.com\LitJson\ParserToken.cs" />
      <Compile Include="Assets\Plugins\whydoidoit.com\Radical\RPCEnabler.cs" />
      <Compile Include="Assets\Plugins\whydoidoit.com\Radical\System\Broadcaster.cs" />
-     <Compile Include="Assets\Plugins\whydoidoit.com\Radical\System\Curves.cs" />
      <Compile Include="Assets\Plugins\whydoidoit.com\Radical\System\Delegates\DelegateSupport.cs" />
-     <Compile Include="Assets\Plugins\whydoidoit.com\Radical\System\Easing.cs" />
      <Compile Include="Assets\Plugins\whydoidoit.com\Radical\System\InheritableRPC.cs" />
      <Compile Include="Assets\Plugins\whydoidoit.com\Radical\System\LoadAnimations.cs" />
      <Compile Include="Assets\Plugins\whydoidoit.com\Radical\System\Loom.cs" />
