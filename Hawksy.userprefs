@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Player_Main/railEnemySpawn.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Player_Main/playerMoveMapped.js">
     <Files>
       <File FileName="Assets/Test_Files/testClass.js" Line="1" Column="1" />
       <File FileName="Assets/Player_Main/playerFireCharged.js" Line="1" Column="1" />
@@ -11,7 +11,8 @@
       <File FileName="Assets/Enemies/enemyExplode.js" Line="1" Column="1" />
       <File FileName="Assets/Player_Main/reticle2Move.js" Line="1" Column="1" />
       <File FileName="Assets/Player_Main/railEnemySpawn.js" Line="16" Column="16" />
-      <File FileName="Assets/Player_Main/lockReticleRotate.js" Line="9" Column="69" />
+      <File FileName="Assets/Player_Main/lockReticleRotate.js" Line="1" Column="1" />
+      <File FileName="Assets/Player_Main/playerMoveMapped.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

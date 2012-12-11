@@ -3,6 +3,7 @@
 var speed = .5;
 private var proximity : float;
 var maxVelocity = .2;
+var minVelocity = .1;
 private var velocityChange : float;
 private var velocity : Vector3;
 var target : Transform;
@@ -33,6 +34,10 @@ if (velocityChange > maxVelocity)
 velocity.Normalize();
 
 velocity = velocity * velocityChange;
+
+//make sure velocity is not way too small
+if(velocity.magnitude < minVelocity || (Input.GetKey ("space")))
+	velocity = Vector3(0,0,0);
 
 premappedLocation = premappedLocation + velocity;
 
