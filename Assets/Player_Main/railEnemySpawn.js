@@ -1,6 +1,19 @@
 #pragma strict
 
-var enemy1 : Transform;
+//All three of these arrays must have the same number of elements
+var enemies : Transform[];
+var paths : GameObject[]; 
+var startingPlayerPositions : int[];
+
+var pointsPerSpline = 5;		//the number of points on each path
+
+private var splines : Vector3[,];		//two dimentional array that holds the points on each path
+
+var numEnemies : int;
+
+var enemyClone : Transform;			//clone of enemy
+
+/*var enemy1 : Transform;
 var enemyTypeMap : int;
 var ts : float[];
 var srs : RadicalLibrary.SmoothQuaternion[];
@@ -11,11 +24,11 @@ var startingPlayerPositions : int[];
 
 var pointsPerSpline = 5;
 var numEnemies = 1;
-var enemyPointer = 0;
-
-var speed = 3f;
+var enemyPointer = 0;*/
 
 private var hasNext = true;
+private var enemyPointer : int;
+
 
 private var j : int;
 private var k : int;
@@ -25,22 +38,13 @@ private var n : int;
 function Start () {
 	numEnemies = paths.Length;
 	splines = new Vector3[numEnemies , pointsPerSpline];
-	enemies = new Transform[numEnemies];
-	srs = new RadicalLibrary.SmoothQuaternion[numEnemies];
-	ts = new float[numEnemies];
-	
-	//startingPlayerPositions[0] = 1;
-	/*splines[0,0] = Vector3(0, 12, 30);
-	splines[0,1] = Vector3(0, 12, 30);
-	splines[0,2] = Vector3(0, 2, 30);
-	splines[0,3] = Vector3(0, 0, 30);
-	splines[0,4] = Vector3(0, 0, 30);*/
-	
+
+	//fills spline array
 	for(j = 0; j < 1; j++)
 	{
 		for(k = 0; k < pointsPerSpline; k++)
 		{
-			splines[j,k] = paths[j].transform.Find("wp" + j + "-" + k).transform.position;
+			splines[j,k] = paths[j].transform.Find("wp" + k).transform.position;
 			Debug.Log(splines[j,k]);
 		//	Debug.Log(paths[j].transform.Find("wp" + j + "-" + k).transform.position.y);
 		//	Debug.Log(paths[j].transform.Find("wp" + j + "-" + k).transform.position.z);
@@ -54,50 +58,49 @@ function Start () {
 
 function Update () {
    
-    
+    //check if player has hit a spawn position
     if(hasNext)
     {
-    if(startingPlayerPositions[enemyPointer] <= transform.position.z && enemyPointer < numEnemies){//position of rail?
-    	instantiateEnemy(enemyPointer);
+    if(startingPlayerPositions[enemyPointer] <= transform.position.z && enemyPointer < numEnemies)
+    {
+    		var arrayCopy = new Vector3[pointsPerSpline];
+    		
+    		for (i=0; i<pointsPerSpline; i++)
+    			arrayCopy[i] = splines[enemyPointer, i];
+    }
+    	instantiateEnemy(enemyPointer, arrayCopy);
     	enemyPointer += 1;
     	
     	//makes sure index does not go out of bounds by determining if another enemy exists
     	if(enemyPointer >= startingPlayerPositions.Length)
     		hasNext = false;
     }
-    }
-    
-    for(n=0; n<enemyPointer; n++){
-    	if(enemies[n] != null){
-    		var arrayCopy = new Vector3[pointsPerSpline];
-    		for (i=0; i<pointsPerSpline; i++){
-    			arrayCopy[i] = splines[n, i];
-   			}
-    		moveEnemy(arrayCopy, n);
-   		}
-    }
 }
 
 //no local variables
 
-function instantiateEnemy(ep : int){
+//instantiates the enemy
+function instantiateEnemy(ep : int, path : Vector3[]){
 
-	Debug.Log("Instantiating Enemy " + ep + " : "); 
-	var obj : Transform;
+	//Debug.Log("Instantiating Enemy " + ep + " : "); 
+	
+	
+	
 	var sr : RadicalLibrary.SmoothQuaternion;
-	obj = Instantiate(enemy1, splines[ep, 0], Quaternion.identity);
-    obj.parent = transform;
-    obj.position = splines[ep, 0];
-    sr = obj.localRotation;
+	
+	enemyClone = Instantiate(enemies[ep], splines[ep, 0], Quaternion.identity);
+    
+    //set parent of clone
+    enemyClone.parent = transform;
+    
+    //set poisition of clone
+    enemyClone.localPosition = splines[ep, 0];
+    
+    //set initial variables of some kind
+    sr = enemyClone.localRotation;
     sr.Duration = 0.5f;
-    enemies[ep] = obj;
-    srs[ep] = sr;
-}
-
-function moveEnemy(sl : Vector3[], ep : int){
-	var q : Quaternion;
-    enemies[ep].localPosition = Spline.MoveOnPath(sl, enemies[ep].localPosition, ts[ep], q, speed, 100, EasingType.Sine, true, true);
-    Debug.Log(enemies[ep].position);
-    srs[ep].Value = q;
-    enemies[ep].localRotation = srs[ep];
+    
+    //pass variables to the enemy clone
+    enemyClone.GetComponent(enemyMove).srs = sr;
+    enemyClone.GetComponent(enemyMove).sl = path;
 }

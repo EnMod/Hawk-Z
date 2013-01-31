@@ -48,6 +48,7 @@
      <Compile Include="Assets\Bullets\Player_Bullets\playerBulletBehavior.js" />
      <Compile Include="Assets\Bullets\Player_Bullets\stageChargeBehavior.js" />
      <Compile Include="Assets\Enemies\enemyExplode.js" />
+     <Compile Include="Assets\Enemies\enemyMove.js" />
      <Compile Include="Assets\Player_Main\cameraMove.js" />
      <Compile Include="Assets\Player_Main\coolestGlitchEVAR.js" />
      <Compile Include="Assets\Player_Main\healthBar.js" />
@@ -57,6 +58,7 @@
      <Compile Include="Assets\Player_Main\playerFireCharged.js" />
      <Compile Include="Assets\Player_Main\playerMove.js" />
      <Compile Include="Assets\Player_Main\playerMoveMapped.js" />
+     <Compile Include="Assets\Player_Main\railESOld.js" />
      <Compile Include="Assets\Player_Main\railEnemySpawn.js" />
      <Compile Include="Assets\Player_Main\reticle2Move.js" />
      <Compile Include="Assets\Player_Main\reticleMove.js" />

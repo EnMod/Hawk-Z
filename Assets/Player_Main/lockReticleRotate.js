@@ -6,5 +6,5 @@ function Start () {
 
 function Update () {
 
-	transform.rotation = GameObject.Find("Reticle").transform.rotation;
+	transform.localRotation = GameObject.Find("Reticle").transform.localRotation;
 }

@@ -13,7 +13,7 @@ function Update () {
 
 //translates to a location ahead of the player
 
-movement = player.forward;
+/*movement = player.forward;
 
 movement.Normalize();
 
@@ -21,5 +21,7 @@ movement = movement * distance;
 
 transform.localPosition = player.localPosition;
 
-transform.localPosition = movement + transform.localPosition;
+transform.localPosition = movement + transform.localPosition;*/
+
+transform.rotation = GameObject.Find("Reticle").transform.rotation;
 }

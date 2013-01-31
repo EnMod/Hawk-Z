@@ -1,18 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Player_Main/playerMoveMapped.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Enemies/enemyMove.js">
     <Files>
-      <File FileName="Assets/Test_Files/testClass.js" Line="1" Column="1" />
-      <File FileName="Assets/Player_Main/playerFireCharged.js" Line="1" Column="1" />
-      <File FileName="Assets/Bullets/Player_Bullets/playerBulletBehavior.js" Line="1" Column="1" />
-      <File FileName="Assets/Bullets/Player_Bullets/ExplodingBulletBehavior.js" Line="1" Column="1" />
-      <File FileName="Assets/Player_Main/playerFireAlt.js" Line="1" Column="1" />
-      <File FileName="Assets/Player_Main/playerFire.js" Line="1" Column="1" />
-      <File FileName="Assets/Enemies/enemyExplode.js" Line="1" Column="1" />
-      <File FileName="Assets/Player_Main/reticle2Move.js" Line="1" Column="1" />
-      <File FileName="Assets/Player_Main/railEnemySpawn.js" Line="16" Column="16" />
+      <File FileName="Assets/Player_Main/railEnemySpawn.js" Line="1" Column="1" />
       <File FileName="Assets/Player_Main/lockReticleRotate.js" Line="1" Column="1" />
       <File FileName="Assets/Player_Main/playerMoveMapped.js" Line="1" Column="1" />
+      <File FileName="Assets/Player_Main/healthBar.js" Line="1" Column="1" />
+      <File FileName="Assets/Enemies/enemyMove.js" Line="22" Column="1" />
+      <File FileName="Assets/Player_Main/railESOld.js" Line="97" Column="2" />
+      <File FileName="Assets/Player_Main/reticle2Move.js" Line="1" Column="1" />
+      <File FileName="Assets/Player_Main/playerFireCharged.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
