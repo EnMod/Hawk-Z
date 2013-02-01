@@ -44,7 +44,7 @@ function Start () {
 	{
 		for(k = 0; k < pointsPerSpline; k++)
 		{
-			splines[j,k] = paths[j].transform.Find("wp" + k).transform.position;
+			splines[j,k] = paths[j].transform.Find("wp" + k).transform.localPosition;
 			Debug.Log(splines[j,k]);
 		//	Debug.Log(paths[j].transform.Find("wp" + j + "-" + k).transform.position.y);
 		//	Debug.Log(paths[j].transform.Find("wp" + j + "-" + k).transform.position.z);

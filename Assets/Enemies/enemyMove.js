@@ -22,10 +22,10 @@ function Update () {
     /*srs.Value = q;
     transform.localRotation = srs;*/
     
-    transform.localPosition = Spline.MoveOnPath(sl, transform.localPosition, ts, speed, 100, EasingType.Sine, true, true);
+    transform.localPosition = Spline.MoveOnPath(sl, transform.localPosition, ts, q, speed, 100, EasingType.Sine, true, true);
     ts += Time.deltaTime/20;
     
-    //srs.Value = q;
-    //transform.rotation = srs;
+    srs.Value = q;
+    transform.rotation = srs;
 
 }
