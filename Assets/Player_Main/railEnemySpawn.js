@@ -13,19 +13,6 @@ var numEnemies : int;
 
 var enemyClone : Transform;			//clone of enemy
 
-/*var enemy1 : Transform;
-var enemyTypeMap : int;
-var ts : float[];
-var srs : RadicalLibrary.SmoothQuaternion[];
-var splines : Vector3[,];
-var paths : GameObject[]; 
-var enemies : Transform[];
-var startingPlayerPositions : int[];
-
-var pointsPerSpline = 5;
-var numEnemies = 1;
-var enemyPointer = 0;*/
-
 private var hasNext = true;
 private var enemyPointer : int;
 
@@ -40,14 +27,12 @@ function Start () {
 	splines = new Vector3[numEnemies , pointsPerSpline];
 
 	//fills spline array
-	for(j = 0; j < 1; j++)
+	for(j = 0; j < paths.Length; j++)
 	{
 		for(k = 0; k < pointsPerSpline; k++)
 		{
 			splines[j,k] = paths[j].transform.Find("wp" + k).transform.localPosition;
-			Debug.Log(splines[j,k]);
-		//	Debug.Log(paths[j].transform.Find("wp" + j + "-" + k).transform.position.y);
-		//	Debug.Log(paths[j].transform.Find("wp" + j + "-" + k).transform.position.z);
+			Debug.Log("splines[" + j + "][" + k + "]: " + splines[j,k]);
 		}
 	}	
 }
@@ -59,23 +44,21 @@ function Start () {
 function Update () {
    
     //check if player has hit a spawn position
-    if(hasNext)
-    {
-    if(startingPlayerPositions[enemyPointer] <= transform.position.z && enemyPointer < numEnemies)
+    if(enemyPointer < paths.Length && startingPlayerPositions[enemyPointer] <= gameObject.GetComponent(playerScript).location)
     {
     		var arrayCopy = new Vector3[pointsPerSpline];
     		
     		for (i=0; i<pointsPerSpline; i++)
     			arrayCopy[i] = splines[enemyPointer, i];
-    }
+    
     	instantiateEnemy(enemyPointer, arrayCopy);
     	enemyPointer += 1;
+    	}
     	
     	//makes sure index does not go out of bounds by determining if another enemy exists
-    	if(enemyPointer >= startingPlayerPositions.Length)
-    		hasNext = false;
+    //	if(enemyPointer >= startingPlayerPositions.Length)
+    //		hasNext = false;
     }
-}
 
 //no local variables
 
