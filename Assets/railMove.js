@@ -23,7 +23,7 @@ function Start () {
 	//fill path array with path points
 	for(var k = 0; k < numPathPoints; k++)
 		{
-			path[k] = playerPath.FindChild("wp" + k).transform.localPosition;
+			path[k] = playerPath.FindChild("wp" + k).transform.position;
 		}
 	
 	//start at first point.	
@@ -39,8 +39,9 @@ function Update () {
 	//rotate and move along path
 	var q : Quaternion;
 	
-	transform.localPosition = Spline.MoveOnPath(path, transform.position, ts, q, speed, 1000, EasingType.Linear, true, false);
-    ts += Time.deltaTime/20;
+	transform.localPosition = Spline.MoveOnPath(path, transform.position, ts, q, speed, 10000, EasingType.Quadratic
+, true, true);
+    //ts += Time.deltaTime/20;
     
     srs.Value = q;
     transform.rotation = srs;

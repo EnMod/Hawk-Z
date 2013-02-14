@@ -7,19 +7,22 @@ var sl : Vector3[];		//the path the enemy is given
 //enemy speed
 var speed = 3f;
 
-private var takeStats = 0;
+private var takeStats = 0;		//determines when to take stats
 
 function Start () {
 
 }
 
 
+//NOTE: make sure to use this format for all enemy move scripts.
 
 function Update () {
 
+//wait one frame for the enemy move script to initialize
 if(takeStats == 0)
 	takeStats++;
 
+//take all of the stats from the enemy move script
 else if (takeStats == 1)
 {
 	srs = gameObject.GetComponent(enemyMove).srs;
@@ -28,6 +31,7 @@ else if (takeStats == 1)
 	
 	takeStats ++;
 }
+//begin moving.  This is the code that gets replaced for each enemy
 else
 {
 var q : Quaternion;
