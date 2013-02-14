@@ -34,7 +34,6 @@ rigidbody.velocity = speed;
 //destroy whatever bullet collides with
 function OnCollisionEnter(collision : Collision)
 {
-		//do not destroy terrain
 		if(collision.gameObject.CompareTag("Enemy"))
 			Destroy (collision.gameObject);
 		

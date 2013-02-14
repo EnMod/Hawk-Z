@@ -1,3 +1,5 @@
+//this is the original rail movement script
+
 #pragma strict
 
 var enemy1 : Transform;

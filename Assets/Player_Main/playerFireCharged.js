@@ -20,7 +20,7 @@ var canFire = false;		//whether or not can fire
 
 var startDelay = .5;			//number of seconds until charge begins
 
-var lockOn : Transform;
+var lockOn : Transform;		//tranform of locked on target
 
 function Start () {
 
@@ -78,12 +78,6 @@ if (Input.GetMouseButton(0))
 		canFire = true;
 		
 		chargeClone = Instantiate(stage1Bullet,transform.position, transform.rotation);
-		
-		/*chargeClone.transform.position = transform.forward;
-	
-		chargeClone.transform.position.Normalize();
-	
-		chargeClone.transform.position = transform.position + (bulletClone.transform.position * 2);*/
 		
 		chargeClone.transform.parent = transform;
 		

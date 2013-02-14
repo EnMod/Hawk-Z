@@ -1,22 +1,25 @@
 #pragma strict
 
-//causes enemy to explode on death
-
-private var isQuitting : boolean =  false;
+//causes enemy to explode on death by instantiating explosion
 
 var explosion : GameObject;
 
 private var explosionClone : GameObject;
 
+var canExplode = true;		//determines if it is okay for the enemy to explode
+
 function OnApplicationQuit()
 {
-    isQuitting = true;
+	//tells script the app is quitting
+	canExplode = false;
 }
 
 function OnDestroy()
 {
-    if (!isQuitting)
-    {
+	//explode only if the app is not in the process of quitting 
+		//(necessary to prevent the enemies exploding in background on next playthrough
+	if (canExplode)
+	{
         explosionClone.Instantiate(explosion,transform.position,transform.parent.rotation);
     }
 }

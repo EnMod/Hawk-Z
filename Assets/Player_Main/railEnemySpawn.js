@@ -13,7 +13,6 @@ var numEnemies : int;
 
 var enemyClone : Transform;			//clone of enemy
 
-private var hasNext = true;
 private var enemyPointer : int;
 
 
@@ -37,14 +36,11 @@ function Start () {
 	}	
 }
 
-//dont declare local variables
-//move n and i
-
 
 function Update () {
    
     //check if player has hit a spawn position
-    if(enemyPointer < paths.Length && startingPlayerPositions[enemyPointer] <= gameObject.GetComponent(playerScript).location)
+    if(enemyPointer < paths.Length && startingPlayerPositions[enemyPointer] <= gameObject.GetComponent(railMove).location)
     {
     		var arrayCopy = new Vector3[pointsPerSpline];
     		
@@ -54,20 +50,10 @@ function Update () {
     	instantiateEnemy(enemyPointer, arrayCopy);
     	enemyPointer += 1;
     	}
-    	
-    	//makes sure index does not go out of bounds by determining if another enemy exists
-    //	if(enemyPointer >= startingPlayerPositions.Length)
-    //		hasNext = false;
     }
-
-//no local variables
 
 //instantiates the enemy
 function instantiateEnemy(ep : int, path : Vector3[]){
-
-	//Debug.Log("Instantiating Enemy " + ep + " : "); 
-	
-	
 	
 	var sr : RadicalLibrary.SmoothQuaternion;
 	
