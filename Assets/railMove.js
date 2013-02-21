@@ -2,6 +2,7 @@
 
 
 var speed = 50f;			//speed of player
+var fFSpeed = 1000f;		//speed while fastforwarding
 var location : float = 0;	//location along rail (used by enemy spawn script)
 
 private var path : Vector3[];		//path of movement
@@ -14,6 +15,8 @@ var srs : RadicalLibrary.SmoothQuaternion;		//rotation of object
 private var ts : float;							//time variable used for rotation	
 
 private var pathSize = 100.0;		//the value that represents the end of the path
+
+private var privateSpeed : float;
 
 function Start () {
 	
@@ -35,11 +38,16 @@ function Start () {
 }
 
 function Update () {
+	if(gameObject.GetComponent(railEnemySpawn).speeding)
+		privateSpeed = fFSpeed;
+	else
+		privateSpeed = speed;
+	
 	
 	//rotate and move along path
 	var q : Quaternion;
 	
-	transform.localPosition = Spline.MoveOnPath(path, transform.position, ts, q, speed, 10000, EasingType.Quadratic
+	transform.localPosition = Spline.MoveOnPath(path, transform.position, ts, q, privateSpeed, 10000, EasingType.Quadratic
 , true, true);
     //ts += Time.deltaTime/20;
     
@@ -49,5 +57,8 @@ function Update () {
 	//add to location value
 	location = ts * pathSize;
 	
-	Debug.Log(ts);
+	if(gameObject.GetComponent(railEnemySpawn).speeding)
+		Debug.Log(ts + " - FF");
+	else
+		Debug.Log(ts);
 }

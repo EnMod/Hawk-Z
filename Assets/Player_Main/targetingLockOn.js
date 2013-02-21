@@ -21,6 +21,7 @@ function Update () {
 function OnTriggerEnter(collision : Collider)
 {
 	//when the enemy is within sights, lock on if the bullet is charging
+		
 		if(collision.gameObject.CompareTag("Enemy") 
 			&& gameObject.Find("Player").GetComponent(playerFireCharged).canFire == true)
 		{

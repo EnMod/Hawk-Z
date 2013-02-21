@@ -46,6 +46,7 @@
   <ItemGroup>
      <Compile Include="Assets\Bullets\Player_Bullets\ExplodingBulletBehavior.js" />
      <Compile Include="Assets\Bullets\Player_Bullets\playerBulletBehavior.js" />
+     <Compile Include="Assets\Bullets\Player_Bullets\playerBulletBehavior1.js" />
      <Compile Include="Assets\Bullets\Player_Bullets\stageChargeBehavior.js" />
      <Compile Include="Assets\Bullets\enemyBulletBehavior.js" />
      <Compile Include="Assets\Enemies\enemyExplode.js" />
@@ -62,6 +63,7 @@
      <Compile Include="Assets\Player_Main\playerHealth.js" />
      <Compile Include="Assets\Player_Main\playerMoveMapped.js" />
      <Compile Include="Assets\Player_Main\railEnemySpawn.js" />
+     <Compile Include="Assets\Player_Main\railEnemySpawnFailedText.js" />
      <Compile Include="Assets\Player_Main\reticle2Move.js" />
      <Compile Include="Assets\Player_Main\reticleMove.js" />
      <Compile Include="Assets\Player_Main\targetingLockOn.js" />
@@ -85,6 +87,7 @@
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Plugins\whydoidoit.com\license.txt" />
+     <None Include="Assets\Enemies\enemySpawnList.txt" />
      <None Include="Assets\UnitySerializer\readme.txt" />
      <None Include="Assets\Terrain\TerrainToolkit\Read me.txt" />
  <Reference Include="Library\ScriptAssemblies\Assembly-UnityScript-firstpass">
