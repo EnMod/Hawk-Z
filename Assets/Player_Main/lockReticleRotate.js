@@ -7,5 +7,5 @@ function Start () {
 function Update () {
 	
 	//rotates lock reticle to match main reticle
-	transform.localRotation = GameObject.Find("Reticle").transform.localRotation;
+	transform.forward = -1 * Camera.main.transform.forward;
 }

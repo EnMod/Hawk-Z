@@ -36,7 +36,7 @@ velocity.Normalize();
 velocity = velocity * velocityChange;
 
 //make sure velocity is not way too small
-if(velocity.magnitude < minVelocity || (Input.GetKey ("space")))
+if(velocity.magnitude < minVelocity)// || (Input.GetKey ("space")))
 	velocity = Vector3(0,0,0);
 
 premappedLocation = premappedLocation + velocity;
