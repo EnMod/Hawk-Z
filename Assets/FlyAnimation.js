@@ -2,44 +2,58 @@
 
 var mainP : Transform;
 var lastPos = Vector3 (0,0,0);
-var timer = 0.0;
-var flyDown = false;
+var goingUp = false;
+var pressed = false;
+var gameTime = 0;
+
+var anim : AnimationState;
 
 function Start () {
 	animation["BarrelRoll"].speed = 1.451;
-
+	animation["FadeIn"].speed = 1.451;
+	animation["FadeOut"].speed = 1.451;
+	
+	
 }
 
 function Update () {
-	if(Input.GetKey ("space"))// && !animation.isPlaying)
-		animation.CrossFade("BarrelRoll",.2);
+	gameTime ++;
+	
+	if (mainP.transform.localPosition.y - lastPos.y >= .1)
+		{
+			goingUp = true;
+		}
+	else 
+		goingUp = false;
 		
-	else if(mainP.transform.localPosition.y > lastPos.y && ! animation.isPlaying && timer == 0)
+	
+	
+	if(Input.GetKey ("space"))// && !animation.isPlaying)
 	{
-		animation.CrossFade("FadeInFly",.2);
-		timer = 0;
-		flyDown = false;
+		animation.CrossFade("BarrelRoll",.1);
+		pressed = true;
 	}
-	
-	if(animation.IsPlaying("FadeInFly") && timer >= .4)
+		
+		
+	else if (goingUp && ! animation.isPlaying && !pressed)
 	{
-		animation.CrossFade("FlyUp",0.2);
+		animation.Play("FadeIn");
+		animation.CrossFadeQueued("FlyUp",.1,QueueMode.CompleteOthers);
+		
+		pressed = true;
 	}
-	
-	if(mainP.transform.localPosition.y < lastPos.y )
-		flyDown = true;
-	
-	if(flyDown)
+	else if(goingUp && pressed && ! animation.IsPlaying("FadeIn") && gameTime % 15 == 0)
 	{
-		animation.CrossFade("FadeOutFly",0.2);
-		flyDown = false;
+		animation.CrossFadeQueued("FlyUp",.1,QueueMode.CompleteOthers);
 	}
-	
-	else if(!animation.isPlaying)
-	animation.CrossFade("Idol",1);
+	else if(pressed && !goingUp && ! animation.IsPlaying("FadeIn"))
+	{
+		animation.CrossFadeQueued("FadeOut",.1,QueueMode.CompleteOthers);
+		pressed = false;
+	}
 	
 	lastPos = mainP.transform.localPosition;
 	
 	
-	timer += Time.deltaTime;
+	
 }

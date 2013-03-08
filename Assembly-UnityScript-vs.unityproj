@@ -65,6 +65,7 @@
      <Compile Include="Assets\Player_Main\playerMoveMapped.js" />
      <Compile Include="Assets\Player_Main\railEnemySpawn.js" />
      <Compile Include="Assets\Player_Main\railEnemySpawnFailedText.js" />
+     <Compile Include="Assets\Player_Main\railMove.js" />
      <Compile Include="Assets\Player_Main\reticle2Move.js" />
      <Compile Include="Assets\Player_Main\reticleMove.js" />
      <Compile Include="Assets\Player_Main\targetingLockOn.js" />
@@ -83,7 +84,6 @@
      <Compile Include="Assets\UnitySerializer\Scripts\Movement.js" />
      <Compile Include="Assets\UnitySerializer\Scripts\PauseMenu.js" />
      <Compile Include="Assets\UnitySerializer\Scripts\Spawner.js" />
-     <Compile Include="Assets\railMove.js" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />

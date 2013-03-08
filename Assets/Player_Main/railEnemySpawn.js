@@ -1,24 +1,25 @@
 #pragma strict
 
-var fastForward = 0.0;
+private var fastForward = 0.0;
 
-//All three of these arrays must have the same number of elements
-var enemies : Transform[];
-var paths : GameObject[]; 
-var startingPlayerPositions : float[];
+class SpawnData {
+	var enemy : Transform;
+	var path : GameObject;
+	var playerPosition : float;
+}
+
+var spawnList : SpawnData [];
 
 var pointsPerSpline = 5;		//the number of points on each path
 
 private var splines : Vector3[,];		//two dimentional array that holds the points on each path
 
-var numEnemies : int;
-
+@System.NonSerialized
 var enemyClone : Transform;			//clone of enemy
 
 private var enemyPointer : int;
 
-var spawnAsset : TextAsset;
-
+@System.NonSerialized
 var speeding = true;
 
 private var j : int;
@@ -27,25 +28,29 @@ private var i : int;
 private var n : int;
 
 function Start () {
-	numEnemies = paths.Length;
-	splines = new Vector3[numEnemies , pointsPerSpline];
+	splines = new Vector3[spawnList.Length , pointsPerSpline];
 
 	//fills spline array
-	for(j = 0; j < paths.Length; j++)
+	for(j = 0; j < spawnList.Length; j++)
 	{
 		for(k = 0; k < pointsPerSpline; k++)
 		{
-			splines[j,k] = paths[j].transform.Find("wp" + k).transform.localPosition;
+			splines[j,k] = spawnList[j].path.transform.Find("wp" + k).transform.localPosition;
 			Debug.Log("splines[" + j + "][" + k + "]: " + splines[j,k]);
 		}
 	}
+	
+	fastForward = gameObject.GetComponent(railMove).fastForwardTo;
+	
+	if (fastForward == 0)
+		speeding = false;
 }
 
 
 function Update () {
    
     //check if player has hit a spawn position
-    while(enemyPointer < paths.Length && startingPlayerPositions[enemyPointer] <= gameObject.GetComponent(railMove).location)
+    while(enemyPointer < spawnList.Length && spawnList[enemyPointer].playerPosition <= gameObject.GetComponent(railMove).location)
     {
     	if(!speeding)
     	{
@@ -71,7 +76,7 @@ function instantiateEnemy(ep : int, path : Vector3[]){
 	
 	var sr : RadicalLibrary.SmoothQuaternion;
 	
-	enemyClone = Instantiate(enemies[ep], splines[ep, 0], Quaternion.identity);
+	enemyClone = Instantiate(spawnList[ep].enemy, splines[ep, 0], Quaternion.identity);
     
     //set parent of clone
     enemyClone.parent = transform;
