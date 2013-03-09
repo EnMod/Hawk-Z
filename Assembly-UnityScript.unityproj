@@ -78,7 +78,6 @@
      <Compile Include="Assets\Test_Files_Archives\NewBehaviourScript.js" />
      <Compile Include="Assets\Test_Files_Archives\bulletFire.js" />
      <Compile Include="Assets\Test_Files_Archives\cameratest.js" />
-     <Compile Include="Assets\Test_Files_Archives\test.js" />
      <Compile Include="Assets\Test_Files_Archives\test2.js" />
      <Compile Include="Assets\UnitySerializer\Scripts\JSONPauseMenu.js" />
      <Compile Include="Assets\UnitySerializer\Scripts\Movement.js" />

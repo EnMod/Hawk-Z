@@ -1,23 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Player_Main/railEnemySpawn.js">
-    <Files>
-      <File FileName="Assets/Player_Main/playerMoveMapped.js" Line="1" Column="1" />
-      <File FileName="Assets/Enemies/enemyMove.js" Line="1" Column="1" />
-      <File FileName="Assets/Enemies/enemyExplode.js" Line="1" Column="1" />
-      <File FileName="Assets/Bullets/enemyBulletBehavior.js" Line="1" Column="1" />
-      <File FileName="Assets/Enemies/enemyFire3.js" Line="1" Column="1" />
-      <File FileName="Assets/Enemies/enemyMoveStandard.js" Line="1" Column="1" />
-      <File FileName="Assets/Enemies/enemySpawnList.txt" Line="1" Column="1" />
-      <File FileName="Assets/Player_Main/railEnemySpawn.js" Line="22" Column="22" />
-      <File FileName="Assets/Bullets/Player_Bullets/playerBulletBehavior1.js" Line="1" Column="1" />
-      <File FileName="Assets/Player_Main/targetingLockOn.js" Line="1" Column="1" />
-      <File FileName="Assets/Enemies/enemyHealth.js" Line="1" Column="1" />
-      <File FileName="Assets/Player_Main/lockReticleRotate.js" Line="1" Column="1" />
-      <File FileName="Assets/FlyAnimation.js" Line="45" Column="80" />
-      <File FileName="Assets/Player_Main/railMove.js" Line="15" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -34,6 +34,7 @@ var startMapping : float;		//compensates for a weird glitch where the player sta
 private var mapping : float;	//FIXED : caused by glitch in FF, keeping mapping because why the hell not
 
 function Start () {
+	numPathPoints++;
 	
 	//init path
 	path = new Vector3[numPathPoints];
@@ -42,6 +43,7 @@ function Start () {
 	for(var k = 0; k < numPathPoints; k++)
 		{
 			path[k] = playerPath.FindChild("wp" + k).transform.position;
+			playerPath.FindChild("wp" + k).active = false;
 		}
 	
 	//start at first point.	
