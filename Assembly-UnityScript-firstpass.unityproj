@@ -56,11 +56,18 @@
      <Compile Include="Assets\Standard Assets\Scripts\Camera Scripts\SmoothFollow.js" />
      <Compile Include="Assets\Standard Assets\Scripts\Camera Scripts\SmoothLookAt.js" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\DragRigidbody.js" />
+     <Compile Include="Assets\Standard Assets\Test_Files_Archives\Archives\cameraMove.js" />
+     <Compile Include="Assets\Standard Assets\Test_Files_Archives\Archives\coolestGlitchEVAR.js" />
+     <Compile Include="Assets\Standard Assets\Test_Files_Archives\Archives\healthBar.js" />
+     <Compile Include="Assets\Standard Assets\Test_Files_Archives\Archives\playerMove.js" />
+     <Compile Include="Assets\Standard Assets\Test_Files_Archives\NewBehaviourScript.js" />
+     <Compile Include="Assets\Standard Assets\Test_Files_Archives\bulletFire.js" />
+     <Compile Include="Assets\Standard Assets\Test_Files_Archives\cameratest.js" />
+     <Compile Include="Assets\Standard Assets\Test_Files_Archives\test2.js" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Plugins\whydoidoit.com\license.txt" />
-     <None Include="Assets\Enemies\enemySpawnList.txt" />
      <None Include="Assets\UnitySerializer\readme.txt" />
      <None Include="Assets\Terrain\TerrainToolkit\Read me.txt" />
   </ItemGroup>

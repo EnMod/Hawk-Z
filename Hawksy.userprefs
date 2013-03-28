@@ -1,6 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/Scripts/Camera Scripts/SmoothFollow.js">
+    <Files>
+      <File FileName="Assets/Standard Assets/Scripts/Camera Scripts/SmoothFollow.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/reticleMove.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/reticleDraw.js" Line="11" Column="41" />
+      <File FileName="Assets/Scripts/railEnemySpawn.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/railMove.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/targetingLockOn.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/playerMoveDampened.js" Line="22" Column="36" />
+      <File FileName="Assets/Scripts/playerMoveMapped.js" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

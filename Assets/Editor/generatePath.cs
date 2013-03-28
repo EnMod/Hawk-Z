@@ -4,9 +4,10 @@ using System.Collections.Generic;
 
 public class generatePath : ScriptableWizard {
 	public GameObject path;
-	public int pathLength = 5;
-	public Color color = Color.white;
-	public float width = 1;
+	public int pathLength;
+	public Color color = new Color(0, 255, 255);
+	public float width = 30;
+	//public bool makePathUpdatable = false;
 	
 	private GameObject pathGraphic;
 	private List<Vector3> points = new List<Vector3>();
@@ -32,19 +33,28 @@ public class generatePath : ScriptableWizard {
 	
 	void CreatePath()
 	{
-		if(path.transform.Find ("Path Graphic(Clone)") != null)
+		if(path.transform.Find ("PathGraphic(Clone)") != null)
 		{
-			GameObject.DestroyImmediate(path.transform.Find ("Path Graphic(Clone)").gameObject);
+			GameObject.DestroyImmediate(path.transform.Find ("PathGraphic(Clone)").gameObject);
 			Debug.Log ("Path already exists. Replacing");
 		}
 		
-		pathGraphic = (GameObject)Instantiate((GameObject)Resources.Load("Path Graphic"), path.transform.position, path.transform.rotation);
+		pathGraphic = (GameObject)Instantiate((GameObject)Resources.Load("PathGraphic"), new Vector3(0,0,0), new Quaternion(0,0,0,0));
 		//pathGraphic.name = "Path Graphic";
 		pathGraphic.transform.parent = path.transform;
 		
+		
+		pathGraphic.gameObject.GetComponent<pathGraphicUpdate>().pathLength = pathLength;
+		pathGraphic.gameObject.GetComponent<pathGraphicUpdate>().color = color;
+		pathGraphic.gameObject.GetComponent<pathGraphicUpdate>().width = width;
+		pathGraphic.gameObject.GetComponent<pathGraphicUpdate>().points = points;
+		//pathGraphic.gameObject.GetComponent<pathGraphicUpdate>().updatable = makePathUpdatable;
+
+			
+		
 		for(int k = 0; k < pathLength; k++)
 		{
-			points.Add(path.transform.Find("wp" + k).transform.localPosition);
+			points.Add(path.transform.Find("wp" + k).transform.position);
 			Debug.Log(k + ": " + points[k]);
 		}
 		

@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Resources\pathGraphicDestroy.cs" />
+     <Compile Include="Assets\Resources\pathGraphicUpdate.cs" />
+     <Compile Include="Assets\Scripts\enemyPathController.cs" />
      <Compile Include="Assets\Terrain\TerrainToolkit\TerrainToolkit.cs" />
      <Compile Include="Assets\UnitySerializer\Scripts\AddSomeForce.cs" />
      <Compile Include="Assets\UnitySerializer\Scripts\AdditionalData.cs" />
@@ -74,7 +76,6 @@
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Plugins\whydoidoit.com\license.txt" />
-     <None Include="Assets\Enemies\enemySpawnList.txt" />
      <None Include="Assets\UnitySerializer\readme.txt" />
      <None Include="Assets\Terrain\TerrainToolkit\Read me.txt" />
  <Reference Include="Library\ScriptAssemblies\Assembly-UnityScript-firstpass">
