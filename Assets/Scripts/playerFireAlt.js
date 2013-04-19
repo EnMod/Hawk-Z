@@ -39,6 +39,8 @@ if (Input.GetMouseButton(1))
 	
 	bulletClone.velocity = force;
 	
+	bulletClone.GetComponent(playerBulletBehavior).velocity = bulletSpeed;
+	
 	bulletClone.transform.parent = transform.parent;
 	}
 	

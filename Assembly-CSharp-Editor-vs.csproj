@@ -44,10 +44,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Editor\addPathPoint.cs" />
      <Compile Include="Assets\Editor\createEnemyPath.cs" />
      <Compile Include="Assets\Editor\generateEnemyPath.cs" />
      <Compile Include="Assets\Editor\generatePath.cs" />
+     <Compile Include="Assets\Editor\mirrorPath.cs" />
+     <Compile Include="Assets\Editor\mirrorPathVertical.cs" />
+     <Compile Include="Assets\Editor\removePathPoint.cs" />
      <Compile Include="Assets\Terrain\TerrainToolkit\Editor\TerrainToolkitEditor.cs" />
+     <None Include="Assets\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />

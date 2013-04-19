@@ -20,20 +20,61 @@ var canFire = false;		//whether or not can fire
 
 var startDelay = .5;			//number of seconds until charge begins
 
+@System.NonSerialized
 var lockOn : Transform;		//tranform of locked on target
 
-function Start () {
+@System.NonSerialized
+var target : Transform;
 
+var mainReticle : GameObject;
+
+var lockReticle : GameObject;
+
+private var mBehavior : reticleDraw;
+
+private var lBehavior : reticleLockDraw;
+
+private var cam : Camera;
+
+function Awake()
+{
+	mBehavior = mainReticle.GetComponent(reticleDraw);
+	lBehavior = lockReticle.GetComponent(reticleLockDraw);
+	
+	cam = Camera.main;
 }
 
 function Update () {
+
+if(canFire)
+{
+	var lockDraw : Vector3;
+	
+	//set bullet to be parented by the avatar
+	for (var child : Transform in transform.parent)
+	{
+		lockDraw = cam.WorldToScreenPoint(child.position);
+		//if(child.tag == "Enemy") Debug.LogError("Enemy: " + lockDraw);
+		
+		lockDraw.y = Screen.height - lockDraw.y;
+		
+		if(child.tag == "Enemy" && lockDraw.x >= mBehavior.drawRect.xMin && lockDraw.x <= mBehavior.drawRect.xMax
+			&& lockDraw.y >= mBehavior.drawRect.yMin && lockDraw.y <= mBehavior.drawRect.yMax)
+		{
+			lBehavior.target = child;
+			target = child;
+		}
+	}
+}
+else
+{
+	lBehavior.target = null;
+}
+
 //start charge when pressed
 if (Input.GetMouseButtonDown(0))
 {	
 	charge = initCharge;
-	
-	//set bullet to be parented by the avatar
-
 }
 
 //on release, shoot
@@ -58,7 +99,9 @@ if (Input.GetMouseButtonUp(0))
 	bulletClone.transform.parent = transform.parent;
 	
 	//prevent bullet from hitting player
-	Physics.IgnoreCollision(bulletClone.collider, collider);	
+	//Physics.IgnoreCollision(bulletClone.collider, collider);	
+	bulletClone.GetComponent(playerLockBulletBehavior).target = target;
+	
 	
 	Destroy(chargeClone);
 	
@@ -69,6 +112,8 @@ if (Input.GetMouseButtonUp(0))
 //charge shot
 if (Input.GetMouseButton(0))
 {
+	
+	
 	//charge
 	charge -= Time.deltaTime;
 	
@@ -100,7 +145,7 @@ if (Input.GetMouseButton(0))
 		bulletClone.transform.parent = transform.parent;
 		
 		//prevent bullet from hitting player
-		Physics.IgnoreCollision(bulletClone.collider, collider);
+		//Physics.IgnoreCollision(bulletClone.collider, collider);
 	
 		//turns off ability to fire
 		canFire = false;

@@ -44,16 +44,23 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ExplodingBulletBehavior.js" />
+     <Compile Include="Assets\Scripts\Enemy Behaviors\enemyAgroBehavior.js" />
+     <Compile Include="Assets\Scripts\Enemy Behaviors\enemyBehavior.js" />
+     <Compile Include="Assets\Scripts\Enemy Behaviors\enemyFalling.js" />
+     <Compile Include="Assets\Scripts\Enemy Behaviors\enemyFireToPath.js" />
+     <Compile Include="Assets\Scripts\Enemy Behaviors\enemyHitSphere.js" />
+     <Compile Include="Assets\Scripts\Enemy Behaviors\enemyKamikaze.js" />
+     <Compile Include="Assets\Scripts\Enemy Behaviors\enemyMoveDart.js" />
+     <Compile Include="Assets\Scripts\Enemy Behaviors\enemyMoveShoot.js" />
+     <Compile Include="Assets\Scripts\Enemy Behaviors\enemySelfDetonate.js" />
+     <Compile Include="Assets\Scripts\Enemy Behaviors\enemyStationaryShoot.js" />
+     <Compile Include="Assets\Scripts\Enemy Behaviors\enemyStopShoot.js" />
+     <Compile Include="Assets\Scripts\Enemy Behaviors\enemySwarm.js" />
      <Compile Include="Assets\Scripts\FlyAnimation.js" />
-     <Compile Include="Assets\Scripts\enemyBehaviorStandard.js" />
+     <Compile Include="Assets\Scripts\animationRandomStart.js" />
+     <Compile Include="Assets\Scripts\enemyAcornBulletBehavior.js" />
      <Compile Include="Assets\Scripts\enemyBulletBehavior.js" />
-     <Compile Include="Assets\Scripts\enemyExplode.js" />
-     <Compile Include="Assets\Scripts\enemyFire1.js" />
-     <Compile Include="Assets\Scripts\enemyFire2.js" />
-     <Compile Include="Assets\Scripts\enemyFire3.js" />
-     <Compile Include="Assets\Scripts\enemyHealth.js" />
-     <Compile Include="Assets\Scripts\enemyMove.js" />
+     <Compile Include="Assets\Scripts\explodingBulletBehavior.js" />
      <Compile Include="Assets\Scripts\lockReticleRotate.js" />
      <Compile Include="Assets\Scripts\makeInvisible.js" />
      <Compile Include="Assets\Scripts\playerBulletBehavior.js" />
@@ -61,13 +68,14 @@
      <Compile Include="Assets\Scripts\playerFireAlt.js" />
      <Compile Include="Assets\Scripts\playerFireCharged.js" />
      <Compile Include="Assets\Scripts\playerHealth.js" />
-     <Compile Include="Assets\Scripts\playerMoveDampened.js" />
+     <Compile Include="Assets\Scripts\playerLockBulletBehavior.js" />
      <Compile Include="Assets\Scripts\playerMoveMapped.js" />
      <Compile Include="Assets\Scripts\railCircleMove.js" />
      <Compile Include="Assets\Scripts\railEnemySpawn.js" />
      <Compile Include="Assets\Scripts\railEnemySpawnFailedText.js" />
      <Compile Include="Assets\Scripts\railMove.js" />
      <Compile Include="Assets\Scripts\reticleDraw.js" />
+     <Compile Include="Assets\Scripts\reticleLockDraw.js" />
      <Compile Include="Assets\Scripts\reticleMove.js" />
      <Compile Include="Assets\Scripts\stageChargeBehavior.js" />
      <Compile Include="Assets\Scripts\targetingLockOn.js" />
@@ -76,6 +84,10 @@
      <Compile Include="Assets\UnitySerializer\Scripts\Movement.js" />
      <Compile Include="Assets\UnitySerializer\Scripts\PauseMenu.js" />
      <Compile Include="Assets\UnitySerializer\Scripts\Spawner.js" />
+     <Compile Include="Assets\enemyOrbBehavior.js" />
+     <Compile Include="Assets\enemyOrbInnerLevelBehavior.js" />
+     <Compile Include="Assets\enemyOrbOuterLevelBehavior.js" />
+     <None Include="Assets\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />

@@ -2,7 +2,9 @@
 
 private var force : Vector3;
 
-private var speed : Vector3;	//speed of bullet
+private var last : Vector3;	//last pos of bullet
+
+private var speed : Vector3;
 
 var lifeTime = 1.0;		//lifetime of bulelt in seconds
 
@@ -12,34 +14,44 @@ private var explosionClone : GameObject;
 
 var bulletDamage : int;
 
+private var first = true;
+
+@System.NonSerialized
+var velocity = 10.0;
+
 function Start () {
 
-speed = rigidbody.velocity;
+last = transform.localPosition;
 
 }
-
 function Update()
 {
+	if(first)
+	{
+		speed = transform.localPosition - last;
+		first = false;
+	}
+	
 	lifeTime -= Time.deltaTime;
 	
 	if (lifeTime <= 0)
 		Destroy (gameObject);
+	
+	speed.Normalize();
+	
+	speed *= velocity * Time.deltaTime;
+	
+	transform.localPosition += speed;
 }
 
-//keep velocity of bullet fized
-function FixedUpdate () {
-
-rigidbody.velocity = speed;
-
-}
 
 //destroy whatever bullet collides with
 function OnCollisionEnter(collision : Collision)
 {
-		//do not destroy terrain
+		
 		if(collision.gameObject.CompareTag("Enemy"))
 		{
-			collision.gameObject.GetComponent(enemyHealth).ChangeCurrentHealth(bulletDamage);
+			collision.gameObject.GetComponent(enemyBehavior).ChangeCurrentHealth(bulletDamage);
 
 		}
 			explosionClone.Instantiate(explosion,transform.position,transform.parent.rotation);

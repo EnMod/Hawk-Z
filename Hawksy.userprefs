@@ -1,15 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/Scripts/Camera Scripts/SmoothFollow.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/pathGraphicDestroy.cs">
     <Files>
-      <File FileName="Assets/Standard Assets/Scripts/Camera Scripts/SmoothFollow.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/reticleMove.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/reticleDraw.js" Line="11" Column="41" />
-      <File FileName="Assets/Scripts/railEnemySpawn.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/railMove.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/targetingLockOn.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/playerMoveDampened.js" Line="22" Column="36" />
-      <File FileName="Assets/Scripts/playerMoveMapped.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Enemy Behaviors/enemyBehavior.js" Line="127" Column="74" />
+      <File FileName="Assets/Scripts/playerBulletBehavior.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/playerFireAlt.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/playerFire.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/playerLockBulletBehavior.js" Line="36" Column="17" />
+      <File FileName="Assets/Scripts/playerFireCharged.js" Line="64" Column="29" />
+      <File FileName="Assets/Scripts/reticleDraw.js" Line="33" Column="91" />
+      <File FileName="Assets/Scripts/reticleLockDraw.js" Line="29" Column="17" />
+      <File FileName="Assets/Scripts/enemyPathController.cs" Line="18" Column="1" />
+      <File FileName="Assets/Scripts/Enemy Behaviors/enemyStationaryShoot.js" Line="83" Column="38" />
+      <File FileName="Assets/Scripts/railMove.js" Line="34" Column="12" />
+      <File FileName="Assets/Scripts/railEnemySpawn.js" Line="52" Column="1" />
+      <File FileName="Assets/Resources/pathGraphicDestroy.cs" Line="18" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

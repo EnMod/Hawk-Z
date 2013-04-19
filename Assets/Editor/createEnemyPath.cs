@@ -39,7 +39,7 @@ public class createEnemyPath : ScriptableWizard {
 		//initialize the path itself
 		path = new GameObject();
 		path.name = newPathName;
-		path.transform.parent = GameObject.Find("Rail").transform;
+		path.transform.parent = GameObject.FindGameObjectWithTag("Rail").transform;
 		
 		path.transform.localPosition = new Vector3(0,0,0);
 		path.transform.localRotation = new Quaternion(0,0,0,0);
@@ -76,12 +76,12 @@ public class createEnemyPath : ScriptableWizard {
 				
 				i++;
 			}
-			while(GameObject.Find("Rail").transform.Find(newPathName) != null || i == 10000);
+			while(GameObject.FindGameObjectWithTag("Rail").transform.Find(newPathName) != null || i == 10000);
 		}
 		
 		if(newPathLength == 0)
 		{
-			newPathLength = GameObject.Find("Rail").GetComponent<railEnemySpawn>().pointsPerSpline;	
+			newPathLength = GameObject.FindGameObjectWithTag("Rail").GetComponent<railEnemySpawn>().pointsPerSpline;	
 		}
 		
 		pathGraphic.gameObject.GetComponent<pathGraphicUpdate>().pathLength = newPathLength;
@@ -128,15 +128,15 @@ public class createEnemyPath : ScriptableWizard {
 				
 				i++;
 			}
-			while(GameObject.Find("Rail").transform.Find(newPathName) != null || i == 10000);
+			while(GameObject.FindGameObjectWithTag("Rail").transform.Find(newPathName) != null || i == 10000);
 		}
 		
 		if(newPathLength == 0)
 		{
-			newPathLength = GameObject.Find("Rail").GetComponent<railEnemySpawn>().pointsPerSpline;	
+			newPathLength = GameObject.FindGameObjectWithTag("Rail").GetComponent<railEnemySpawn>().pointsPerSpline;	
 		}
 		
-		if(GameObject.Find("Rail").transform.Find(newPathName) != null)
+		if(GameObject.FindGameObjectWithTag("Rail").transform.Find(newPathName) != null)
 		{
 			errorString = "A path with that name already exists!";
 			isValid = false;

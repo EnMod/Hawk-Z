@@ -7,6 +7,9 @@ var reticleSize = 1.0;
 var texture : Texture2D;
 var dynamicSize = false;
 
+@System.NonSerialized
+var drawRect : Rect;
+
 function Start () {
 	rs = Screen.width / (10 / reticleSize);
 }
@@ -26,5 +29,8 @@ function OnGUI()
 	 	GUI.depth = 1;
 	 }
 	 
-	 GUI.Label (Rect (camPos.x - (rs / 2), -1 * camPos.y + Screen.height - (rs / 2), rs, rs), texture);
+	 
+	 drawRect = Rect (camPos.x - (rs / 2), -1 * camPos.y + Screen.height - (rs / 2), rs, rs);
+	 
+	 GUI.Label (drawRect, texture);
 }

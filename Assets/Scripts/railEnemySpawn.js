@@ -9,6 +9,7 @@ class SpawnData implements System.IComparable
 	var enemy : Transform;
 	var path : GameObject;
 	var playerPosition : float;
+	var addedDelay : float;
 	
 	//compare function to allow sorting
 	function CompareTo(obj : Object)
@@ -103,8 +104,11 @@ function InstantiateEnemy(ep : int, path : Vector3[]){
     sr.Duration = 0.5f;
     
     //pass variables to the enemy clone
-    enemyClone.GetComponent(enemyMove).srs = sr;
-    enemyClone.GetComponent(enemyMove).sl = path;
+    enemyClone.GetComponent(enemyBehavior).srs = sr;
+    enemyClone.GetComponent(enemyBehavior).path = path;
+    enemyClone.GetComponent(enemyBehavior).reloadStartDelay += spawnList[ep].addedDelay;
+    
+//    Debug.LogWarning(enemyClone.GetComponent(enemyBehavior).reloadStartDelay);
 }
 
 function Clean()

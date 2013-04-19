@@ -13,7 +13,6 @@ public class pathGraphicUpdate : MonoBehaviour {
 	
 	//[System.NonSerialized]
 	public int pathLength;
-	[System.NonSerialized]
 	public List<Vector3> points = new List<Vector3>();
 	
 	// Use this for initialization
@@ -36,12 +35,11 @@ public class pathGraphicUpdate : MonoBehaviour {
 		//pathGraphic.AddComponent<pathGraphicDestroy>((PathGraphicDestroy)Resources.Load("pathGraphicDestroy"));
 		LineRenderer lr = (LineRenderer)gameObject.GetComponent("LineRenderer");
 		
-		
+		lr.SetVertexCount(pathLength);
 		//lr.SetVertexCount(pathLength);
 			
 		for (int i = 0; i <  pathLength; i++)
 		{
-			
 			lr.SetPosition(i, points[i]);
 		}
 		

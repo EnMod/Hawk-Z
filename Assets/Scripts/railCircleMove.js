@@ -14,7 +14,14 @@ var loopNode : GameObject;
 private var start = true;
 
 function Start () {
+	//duct tape solution: turn of path renderers
+	path = new Vector3[numPathPoints + 1];
 	
+	for(var k = 0; k < numPathPoints + 1; k++)
+		{
+			path[k] = circularPlayerPath.FindChild("wp" + k).transform.position;
+			circularPlayerPath.FindChild("wp" + k).gameObject.active = false;
+		}
 }
 
 function Update () {
@@ -31,7 +38,7 @@ function Update () {
 	for(var k = 1; k < numPathPoints + 1; k++)
 		{
 			path[k] = circularPlayerPath.FindChild("wp" + k).transform.position;
-			circularPlayerPath.FindChild("wp" + k).gameObject.active = false;
+			//circularPlayerPath.FindChild("wp" + k).gameObject.active = false;
 		}
 		
 	path[numPathPoints + 1] = loopNode.transform.position;

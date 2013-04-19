@@ -14,18 +14,23 @@ public class enemyPathController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//points is a list of each child of the path's position in world space
 		foreach (Transform child in transform.parent)
 		{
 			points.Add(child.position);
 		}
-
-		transform.parent.transform.localPosition = new Vector3(0,0,0);
-		transform.parent.localRotation = new Quaternion(0,0,0,0);
 		
+		//reset parent to local position 0
+		transform.parent.localPosition = new Vector3(0,0,0);
+		transform.parent.localRotation = new Quaternion(0,0,0,0);
+		transform.parent.localScale = new Vector3(1,1,1);
+		
+		//return points to the original world position
 		int i = 0;
 		foreach (Transform child in transform.parent)
 		{
 			child.position = points[i];
+			//child.localScale = new Vector3(2,2,2);
 			i++;
 		}
 		

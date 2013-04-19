@@ -29,10 +29,9 @@ if (Input.GetMouseButtonDown(0))
 	
 	bulletClone.velocity = force;
 	
+	bulletClone.GetComponent(playerBulletBehavior).velocity = bulletSpeed;
+	
 	//ensures bulelt is parented to rail
 	bulletClone.transform.parent = transform.parent;
-	
-	//prevent bullet from hitting player
-	Physics.IgnoreCollision(bulletClone.collider, collider);
 }
 }

@@ -46,7 +46,7 @@ private var path : Vector3[];		//path of movement
 
 var playerPath : Transform;			//transform of the object to move
 
-var numPathPoints = 5;				//number of points along the player path
+private var numPathPoints = 0;				//number of points along the player path
 
 var startPosition : Transform;
 
@@ -78,6 +78,14 @@ function Start () {
 	transform.rotation = Quaternion(0,1,.1,0);
 	transform.position = startPosition.position;
 	
+	numPathPoints = 0;
+	while(playerPath != null && playerPath.Find("wp" + numPathPoints) != null)
+	{
+		numPathPoints++;
+	}
+	
+	//Debug.LogWarning(numPathPoints);
+	
 	//init path
 	path = new Vector3[numPathPoints];
 	
@@ -98,7 +106,7 @@ function Start () {
 	
 	//set lookOrb
 	lookOrb = GameObject.Find("LookOrb").transform;
-	lookOrb.localPosition = GameObject.Find("LookAt0").transform.localPosition; 
+	lookOrb.localPosition = transform.Find("LookStraight").localPosition; 
 	lookCurrent = lookOrb.localPosition; 
 	lookTime = Time.time;
 }

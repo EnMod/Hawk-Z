@@ -72,6 +72,10 @@
      <Compile Include="Assets\UnitySerializer\Scripts\TestSerialization.cs" />
      <Compile Include="Assets\UnitySerializer\Scripts\VariablesToSave.cs" />
      <Compile Include="Assets\UnitySerializer\Scripts\changecolor.cs" />
+     <Compile Include="Assets\iTween\Sample\MoveSample.cs" />
+     <Compile Include="Assets\iTween\Sample\RotateSample.cs" />
+     <Compile Include="Assets\iTween\Sample\SampleInfo.cs" />
+     <None Include="Assets\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />

@@ -84,6 +84,6 @@ function instantiateEnemy(ep : int, path : Vector3[]){
     sr.Duration = 0.5f;
     
     //pass variables to the enemy clone
-    enemyClone.GetComponent(enemyMove).srs = sr;
-    enemyClone.GetComponent(enemyMove).sl = path;
+    enemyClone.GetComponent(enemyBehavior).srs = sr;
+    enemyClone.GetComponent(enemyBehavior).path = path;
 }

@@ -31,7 +31,7 @@ function Update () {
 	if(Input.GetKey ("space"))// && !animation.isPlaying)
 	{
 		animation.CrossFade("BarrelRoll",.1);
-		pressed = true;
+		pressed = false;
 	}
 		
 		
@@ -46,7 +46,7 @@ function Update () {
 	{
 		animation.CrossFadeQueued("FlyUp",.1,QueueMode.CompleteOthers);
 	}
-	else if(pressed && !goingUp && ! animation.IsPlaying("FadeIn"))
+	else if(pressed && !goingUp && !animation.IsPlaying("FadeIn"))// && !animation.IsPlaying("BarrelRoll"))
 	{
 		animation.CrossFadeQueued("FadeOut",.1,QueueMode.CompleteOthers);
 		pressed = false;
