@@ -109,6 +109,8 @@ function Start () {
 	lookOrb.localPosition = transform.Find("LookStraight").localPosition; 
 	lookCurrent = lookOrb.localPosition; 
 	lookTime = Time.time;
+	
+	iTween.Init(gameObject);
 }
 
 
@@ -142,26 +144,25 @@ function Update () {
 	//add to location value
 	location = mapping * 100;
 	
+	
 	//update lookOrb on location in level
 	if(nextLook < lookVariation.Length && location >= lookVariation[nextLook].changeAt)
 	{
 		lookMove = true;
 		lookDistance = 0.0;
 		lookTarget = lookVariation[nextLook].lookAt;
-		lookTime=Time.time;
+		//lookTime=Time.time;
 		nextLook++;
+		lookCurrent = lookOrb.localPosition;
+		
+		iTween.ValueTo(gameObject, iTween.Hash("to",1.0,"from",0.0, "time", lookVariation[nextLook - 1].moveTime, "easeTtype", iTween.EaseType.easeOutQuad, 
+		"onupdate", "SetLookDistance", "oncomplete","TweenDone"));
 	}
 	
 	if(lookMove)
 	{
-		lookDistance = (Time.time - lookTime) / lookVariation[nextLook - 1].moveTime; 
+		//lookDistance = (Time.time - lookTime) / lookVariation[nextLook - 1].moveTime; 
 		lookOrb.localPosition = Vector3.Slerp(lookCurrent, lookTarget.localPosition, lookDistance);
-		
-		if (lookOrb.localPosition == lookTarget.localPosition)
-		{
-			lookCurrent = lookOrb.localPosition;
-			lookMove = false;
-		}
 	}
 
 	
@@ -172,6 +173,16 @@ function Update () {
 		Debug.Log(location + " - FF");
 	else
 		Debug.Log(location);
+}
+
+function SetLookDistance(val : float)
+{
+	lookDistance = val;
+}
+
+function TweenDone()
+{
+	lookMove = false;
 }
 
 function Clean(){
@@ -212,3 +223,20 @@ function Clean(){
 	newarr1.Sort();
 	lookVariation = newarr1.ToBuiltin(LookData) as LookData[];
 }
+
+function Awake()
+{
+	if(GameObject.Find("lives") != null)
+	{
+		if(GameObject.Find("lives").GetComponent(numLives).checkPoint)
+			fastForwardTo = 60;
+	}
+}
+//
+//function LateUpdate()
+//{
+//	if(location >= 78)
+//	{
+//		Application.LoadLevel("done");
+//	}
+//}

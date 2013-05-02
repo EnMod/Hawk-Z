@@ -12,6 +12,8 @@ private var bulletClone : Rigidbody;	//bullet created
 
 var bulletSpeed = 50.0;
 
+var maxBulletSpeed = 50.0;
+
 var initCharge = 5.0;		//number of seconds that it takes to reach full charge
 
 var charge = initCharge;
@@ -19,6 +21,8 @@ var charge = initCharge;
 var canFire = false;		//whether or not can fire
 
 var startDelay = .5;			//number of seconds until charge begins
+
+var homingForce = 50.0;
 
 @System.NonSerialized
 var lockOn : Transform;		//tranform of locked on target
@@ -85,27 +89,7 @@ if (Input.GetMouseButtonUp(0))
 	{
 	//instantiates bullet at player position, sets it face the same direction as the player and
 	//	fire at bullet speed
-	bulletClone = Instantiate(bullet, transform.position, transform.rotation);
-	
-	force = transform.forward;
-	
-	force.Normalize();
-	
-	force = force * bulletSpeed;
-	
-	bulletClone.velocity = force;
-	
-	//ensures bulelt is parented to rail
-	bulletClone.transform.parent = transform.parent;
-	
-	//prevent bullet from hitting player
-	//Physics.IgnoreCollision(bulletClone.collider, collider);	
-	bulletClone.GetComponent(playerLockBulletBehavior).target = target;
-	
-	
-	Destroy(chargeClone);
-	
-	canFire = false;
+	Fire();
 	}
 }
 
@@ -131,26 +115,35 @@ if (Input.GetMouseButton(0))
 	//when fully charged, fire no matter what the player does
 	if(charge < 0 && canFire)
 	{
-		bulletClone = Instantiate(bullet, transform.position, transform.rotation);
-	
-		force = transform.forward;
-	
-		force.Normalize();
-	
-		force = force * bulletSpeed;
-	
-		bulletClone.velocity = force;
-	
-		//ensures bullet is parented to rail
-		bulletClone.transform.parent = transform.parent;
-		
-		//prevent bullet from hitting player
-		//Physics.IgnoreCollision(bulletClone.collider, collider);
-	
-		//turns off ability to fire
-		canFire = false;
-		
-		Destroy(chargeClone);
+		Fire();
 	}
 }
+}
+
+function Fire()
+{
+	bulletClone = Instantiate(bullet, transform.position, transform.rotation);
+	
+	force = transform.forward;
+	
+	force.Normalize();
+	
+	force = force * bulletSpeed;
+	
+	//ensures bullet is parented to rail
+	bulletClone.transform.parent = transform.parent;
+	
+	bulletClone.velocity = force;
+	
+	
+	
+	//prevent bullet from hitting player
+	//Physics.IgnoreCollision(bulletClone.collider, collider);	
+	bulletClone.GetComponent(playerLockBulletBehavior).target = target;
+	bulletClone.GetComponent(playerLockBulletBehavior).maxVelocity = maxBulletSpeed;
+	bulletClone.GetComponent(playerLockBulletBehavior).pull = homingForce;
+	
+	Destroy(chargeClone);
+	
+	canFire = false;
 }

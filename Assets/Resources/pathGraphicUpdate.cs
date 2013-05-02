@@ -35,12 +35,13 @@ public class pathGraphicUpdate : MonoBehaviour {
 		//pathGraphic.AddComponent<pathGraphicDestroy>((PathGraphicDestroy)Resources.Load("pathGraphicDestroy"));
 		LineRenderer lr = (LineRenderer)gameObject.GetComponent("LineRenderer");
 		
-		lr.SetVertexCount(pathLength);
+		lr.SetVertexCount(pathLength * 3);
 		//lr.SetVertexCount(pathLength);
 			
-		for (int i = 0; i <  pathLength; i++)
+		for (int i = 0; i <  pathLength * 3; i++)
 		{
-			lr.SetPosition(i, points[i]);
+			//Debug.LogWarning((i / ((float)pathLength * 3)) + "     i = " + i);
+			lr.SetPosition(i, iTween.PointOnPath(points.ToArray(), (i / ((float)pathLength * 3))));
 		}
 		
 		//set colors and width

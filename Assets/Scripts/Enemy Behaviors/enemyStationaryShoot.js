@@ -41,6 +41,10 @@ var throwTime = .7;
 
 var numShots = 3;
 
+private var hitClone : GameObject;
+var explosionSize = 50;
+
+var suicide = false;
  
 function Awake () {
 	rData = GameObject.FindGameObjectWithTag("Rail").GetComponent(railEnemySpawn);
@@ -81,7 +85,17 @@ function Update () {
 	transform.LookAt(aim.position);
 	
 	if(inRange && numShots > 0 && !rData.speeding) 
-		Fire(); 
+	{
+		if(!suicide)
+		{
+			Fire();
+		}
+		else
+		{
+			Debug.LogWarning("Self-Detonate2");
+			Detonate();
+		} 
+	}
 	
 	transform.forward = ori;
 }
@@ -126,4 +140,15 @@ function Fire()
 		}
 		
 		cooldown -= Time.deltaTime;
+}
+
+function Detonate()
+{
+	hitClone = Resources.Load("EnemyHitSphere");
+		
+	hitClone = Instantiate(hitClone, transform.position, transform.rotation);
+	hitClone.transform.localScale = Vector3(explosionSize, explosionSize, explosionSize);
+	hitClone.transform.parent = transform.parent;
+	hitClone.GetComponent(enemyHitSphere).collisionDamage = gameObject.GetComponent(enemyBehavior).collisionDamage;
+	Destroy(gameObject);
 }

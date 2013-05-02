@@ -8,14 +8,13 @@ function Start () {
 }
 
 function Update () {
-
+	lifeTime -= Time.deltaTime;
+	if(lifeTime <= 0)
+		Destroy(gameObject);
 }
 
 function OnCollisionEnter(collision : Collision)
 {
-		lifeTime -= Time.deltaTime;
-		if(lifeTime <= 0)
-			Destroy(gameObject);
 		
 		if(collision.gameObject.CompareTag("Player"))
 		{

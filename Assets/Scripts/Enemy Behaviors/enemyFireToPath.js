@@ -33,8 +33,6 @@ function Awake () {
 	} 
 	
 	scalePath = path[pathLength - 2].localPosition.z;
-	
-	Debug.LogError(scalePath);
 }
 
 function Update () {
@@ -46,8 +44,6 @@ function Update () {
 		
 		//scale to aimer
 		scaleFactor = Vector3.Distance(transform.localPosition, behavior.aim.transform.localPosition);
-		
-		Debug.LogWarning(scaleFactor);
 		
 		scaleFactor /= scalePath;
 		

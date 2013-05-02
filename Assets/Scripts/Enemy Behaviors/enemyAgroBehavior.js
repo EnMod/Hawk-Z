@@ -10,6 +10,7 @@ function OnTriggerEnter (other : Collider)
 	{
 		transform.parent.GetComponent(enemyStationaryShoot).inRange = true;
 		transform.parent.GetComponent(enemyStationaryShoot).aim.position = other.transform.position;
+		Debug.LogWarning("Self-Detonate");
 		Destroy(gameObject);
 	}
 }

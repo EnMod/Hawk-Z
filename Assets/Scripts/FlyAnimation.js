@@ -8,12 +8,14 @@ var gameTime = 0;
 
 var anim : AnimationState;
 
+private var ph : playerHealth;
+
 function Start () {
 	animation["BarrelRoll"].speed = 1.451;
 	animation["FadeIn"].speed = 1.451;
 	animation["FadeOut"].speed = 1.451;
 	
-	
+	ph = gameObject.GetComponent("playerHealth");
 }
 
 function Update () {
@@ -28,10 +30,15 @@ function Update () {
 		
 	
 	
-	if(Input.GetKey ("space"))// && !animation.isPlaying)
+	if(Input.GetKeyDown ("space"))// && !animation.isPlaying)
 	{
-		animation.CrossFade("BarrelRoll",.1);
-		pressed = false;
+		if(ph.CanBarrel())
+		{
+			animation.CrossFade("BarrelRoll",.1);
+			ph.DoABarrelRoll();
+			pressed = false;
+			audio.Play();
+		}
 	}
 		
 		
@@ -52,8 +59,20 @@ function Update () {
 		pressed = false;
 	}
 	
+	//change size on barrel roll
+	if(animation.IsPlaying("BarrelRoll"))
+	{
+		capsule.height = .04;
+	}
+	else
+	{
+		capsule.height = .2;
+	}
+	
 	lastPos = mainP.transform.localPosition;
 	
 	
 	
 }
+
+ var capsule : CapsuleCollider;

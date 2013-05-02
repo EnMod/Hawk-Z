@@ -53,6 +53,8 @@ private var statDelay = 2;
 
 function Start () {
 	cooldown = reloadStartDelay;
+	
+	CurrHealth = maxHealth;
 }
 
 function Update () {
@@ -149,9 +151,9 @@ function Fire()
 //damage player in collision
 function OnCollisionEnter(collision : Collision)
 {
-		if(collision.gameObject.CompareTag("Player"))
+		if(collision.gameObject.tag == "Player")
 		{
-			//Debug.LogWarning("collide!");
+			Debug.LogWarning("collide!");
 			collision.gameObject.GetComponent(playerHealth).ChangeCurrentHealth(collisionDamage);
 			Destroy (gameObject);
 		}

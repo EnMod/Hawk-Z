@@ -1,20 +1,34 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/pathGraphicDestroy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/railEnemySpawn.js">
     <Files>
-      <File FileName="Assets/Scripts/Enemy Behaviors/enemyBehavior.js" Line="127" Column="74" />
       <File FileName="Assets/Scripts/playerBulletBehavior.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/playerFireAlt.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/playerFire.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/playerLockBulletBehavior.js" Line="36" Column="17" />
-      <File FileName="Assets/Scripts/playerFireCharged.js" Line="64" Column="29" />
-      <File FileName="Assets/Scripts/reticleDraw.js" Line="33" Column="91" />
-      <File FileName="Assets/Scripts/reticleLockDraw.js" Line="29" Column="17" />
-      <File FileName="Assets/Scripts/enemyPathController.cs" Line="18" Column="1" />
-      <File FileName="Assets/Scripts/Enemy Behaviors/enemyStationaryShoot.js" Line="83" Column="38" />
-      <File FileName="Assets/Scripts/railMove.js" Line="34" Column="12" />
-      <File FileName="Assets/Scripts/railEnemySpawn.js" Line="52" Column="1" />
-      <File FileName="Assets/Resources/pathGraphicDestroy.cs" Line="18" Column="2" />
+      <File FileName="Assets/Scripts/playerLockBulletBehavior.js" Line="69" Column="36" />
+      <File FileName="Assets/Scripts/playerFireCharged.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Enemy Behaviors/enemySelfDetonate.js" Line="19" Column="23" />
+      <File FileName="Assets/Scripts/Enemy Behaviors/enemyHitSphere.js" Line="18" Column="3" />
+      <File FileName="Assets/Scripts/playerHitSphere.js" Line="26" Column="2" />
+      <File FileName="Assets/Scripts/Enemy Behaviors/enemyFireToPath.js" Line="46" Column="97" />
+      <File FileName="Assets/Resources/pathGraphicUpdate.cs" Line="43" Column="6" />
+      <File FileName="Assets/Scripts/railMove.js" Line="238" Column="19" />
+      <File FileName="Assets/Plugins/radical/System/Curves.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/lookObject.js" Line="9" Column="2" />
+      <File FileName="Assets/Plugins/iTween.cs" Line="7051" Column="1" />
+      <File FileName="Assets/Scripts/Enemy Behaviors/enemyStationaryShoot.js" Line="70" Column="20" />
+      <File FileName="Assets/Scripts/Enemy Behaviors/enemySquirrelKamikaze.js" Line="24" Column="3" />
+      <File FileName="Assets/Scripts/Enemy Behaviors/enemyKamikaze.js" Line="7" Column="32" />
+      <File FileName="Assets/Standard Assets/Test_Files_Archives/Archives/cameraMove.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/enemyOrbOuterLevelBehavior.js" Line="17" Column="27" />
+      <File FileName="Assets/Scripts/playerHealth.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FlyAnimation.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/enemyOrbBehavior.js" Line="39" Column="26" />
+      <File FileName="Assets/Scripts/Enemy Behaviors/enemyStopShoot.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Enemy Behaviors/enemyBehavior.js" Line="53" Column="1" />
+      <File FileName="Assets/stuff/numLives.js" Line="5" Column="31" />
+      <File FileName="Assets/stuff/menu/Start.js" Line="18" Column="2" />
+      <File FileName="Assets/Scripts/railEnemySpawn.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
